@@ -247,7 +247,11 @@ public enum CvTermReference{
     MS_SONAR_SCORE("MS", "MS:1001502", "Sonar:Score", "MS:1001143"),
 
     // percolator:score
-    MS_PERCULATOR_SCORE("MS", "MS:1001492", "percolator:score", "MS:1001143"),
+    MS_PERCOLATOR_SCORE("MS", "MS:1001492", "percolator:score", "MS:1001143"),
+
+    // ProLuCID
+    MS_PROLUCID_XSCORE("MS", "MS:1002534", "The ProLuCID result 'XCorr'", "MS:1001143"),
+    MS_PROLUCID_DELTA("MS", "MS:1002535", "The ProLuCID result 'DeltaCn'", "MS:1001143"),
 
     PROJECT_NAME("PRIDE", "PRIDE:0000097", "Project", "PRIDE:0000006"),
     EXPERIMENT_DESCRIPTION("PRIDE", "PRIDE:0000040", "Experiment Description", "PRIDE:0000006"),

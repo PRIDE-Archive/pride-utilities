@@ -11,6 +11,7 @@ public enum SearchEngineScoreCvTermReference {
     MS_SEARCH_ENGINE_SPECIFIC_SCORE(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1001153", "search engine specific score", null),
 
     MS_ASCORE_ASCORE(SearchEngineCvTermReference.MS_ASCORE, "MS", "MS:1001985", "Ascore:Ascore", null),
+
     MS_BYONIC__PEPTIDE_ABSLOGPROB(SearchEngineCvTermReference.MS_BYONIC, "MS", "MS:1002309", "Byonic: Peptide AbsLogProb", null),
     MS_BYONIC__PEPTIDE_ABSLOGPROB2D(SearchEngineCvTermReference.MS_BYONIC, "MS", "MS:1002311", "Byonic: Peptide AbsLogProb2D", null),
     MS_BYONIC__PROTEIN_ABSLOGPROB(SearchEngineCvTermReference.MS_BYONIC, "MS", "MS:1002310", "Byonic: Protein AbsLogProb", null),
@@ -22,7 +23,9 @@ public enum SearchEngineScoreCvTermReference {
     MS_BYONIC_PEPTIDE_LOGPROB(SearchEngineCvTermReference.MS_BYONIC, "MS", "MS:1002266", "Byonic:Peptide LogProb", null),
     MS_BYONIC_PROTEIN_LOGPROB(SearchEngineCvTermReference.MS_BYONIC, "MS", "MS:1002267", "Byonic:Protein LogProb", null),
     MS_BYONIC_SCORE(SearchEngineCvTermReference.MS_BYONIC, "MS", "MS:1002262", "Byonic:Score", null),
+
     MS_COMBINED_FDRSCORE(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1002125", "combined FDRScore", null),
+
     MS_COMET_DELTACN(SearchEngineCvTermReference.MS_COMET, "MS", "MS:1002253", "Comet:deltacn", null),
     MS_COMET_DELTACNSTAR(SearchEngineCvTermReference.MS_COMET, "MS", "MS:1002254", "Comet:deltacnstar", null),
     MS_COMET_EXPECTATION_VALUE(SearchEngineCvTermReference.MS_COMET, "MS", "MS:1002257", "Comet:expectation value", null),
@@ -31,11 +34,13 @@ public enum SearchEngineScoreCvTermReference {
     MS_COMET_SPSCORE(SearchEngineCvTermReference.MS_COMET, "MS", "MS:1002255", "Comet:spscore", null),
     MS_COMET_TOTAL_IONS(SearchEngineCvTermReference.MS_COMET, "MS", "MS:1002259", "Comet:total ions", null),
     MS_COMET_XCORR(SearchEngineCvTermReference.MS_COMET, "MS", "MS:1002252", "Comet:xcorr", null),
+
     MS_DEBUNKER_SCORE(SearchEngineCvTermReference.MS_DEBUNKER, "MS", "MS:1001974", "DeBunker:score", null),
     MS_FDRSCORE(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1001874", "FDRScore", null),
     MS_HIGHER_SCORE_BETTER(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1002108", "higher score better", null),
     MS_IDENTITYE_SCORE(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1001569", "IdentityE Score", null),
     MS_LOWER_SCORE_BETTER(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1002109", "lower score better", null),
+
     MS_MASCOT_EXPECTATION_VALUE(SearchEngineCvTermReference.MS_MASCOT, "MS", "MS:1001172", "Mascot:expectation value", null),
     MS_MASCOT_HOMOLOGY_THRESHOLD(SearchEngineCvTermReference.MS_MASCOT, "MS", "MS:1001370", "Mascot:homology threshold", null),
     MS_MASCOT_IDENTITY_THRESHOLD(SearchEngineCvTermReference.MS_MASCOT, "MS", "MS:1001371", "Mascot:identity threshold", null),
@@ -43,12 +48,15 @@ public enum SearchEngineScoreCvTermReference {
     MS_MASCOT_PTM_SITE_ASSIGNMENT_CONFIDENCE(SearchEngineCvTermReference.MS_MASCOT, "MS", "MS:1002012", "Mascot:PTM site assignment confidence", null),
     MS_MASCOT_SCORE(SearchEngineCvTermReference.MS_MASCOT, "MS", "MS:1001171", "Mascot:score", null),
     MS_MASCOT_TOTAL_IONS(SearchEngineCvTermReference.MS_MASCOT, "MS", "MS:1001174", "Mascot:total ions", null),
+
     MS_MAXQUANT_P_SITE_LOCALIZATION_PROBABILITY(SearchEngineCvTermReference.MS_MAXQUANT, "MS", "MS:1001982", "MaxQuant:P-site localization probability", null),
     MS_MAXQUANT_PHOSPHO__STY__PROBABILITIES(SearchEngineCvTermReference.MS_MAXQUANT, "MS", "MS:1001980", "MaxQuant:Phospho (STY) Probabilities", null),
     MS_MAXQUANT_PHOSPHO__STY__SCORE_DIFFS(SearchEngineCvTermReference.MS_MAXQUANT, "MS", "MS:1001981", "MaxQuant:Phospho (STY) Score Diffs", null),
     MS_MAXQUANT_PTM_DELTA_SCORE(SearchEngineCvTermReference.MS_MAXQUANT, "MS", "MS:1001983", "MaxQuant:PTM Delta Score", null),
     MS_MAXQUANT_PTM_SCORE(SearchEngineCvTermReference.MS_MAXQUANT, "MS", "MS:1001979", "MaxQuant:PTM Score", null),
+
     MS_MRMAID_PEPTIDE_SCORE(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1002221", "MRMaid:peptide score", null),
+
     MS_MS_GF_DENOVOSCORE(SearchEngineCvTermReference.MS_MS_GF, "MS", "MS:1002050", "MS-GF:DeNovoScore", null),
     MS_MS_GF_ENERGY(SearchEngineCvTermReference.MS_MS_GF, "MS", "MS:1002051", "MS-GF:Energy", null),
     MS_MS_GF_EVALUE(SearchEngineCvTermReference.MS_MS_GF, "MS", "MS:1002053", "MS-GF:EValue", null),
@@ -57,14 +65,18 @@ public enum SearchEngineScoreCvTermReference {
     MS_MS_GF_QVALUE(SearchEngineCvTermReference.MS_MS_GF, "MS", "MS:1002054", "MS-GF:QValue", null),
     MS_MS_GF_RAWSCORE(SearchEngineCvTermReference.MS_MS_GF, "MS", "MS:1002049", "MS-GF:RawScore", null),
     MS_MS_GF_SPECEVALUE(SearchEngineCvTermReference.MS_MS_GF, "MS", "MS:1002052", "MS-GF:SpecEValue", null),
+
     MS_MSFIT_MOWSE_SCORE(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1001501", "MSFit:Mowse score", null),
     MS_MSQUANT_PTM_SCORE(SearchEngineCvTermReference.MS_MSQUANT, "MS", "MS:1001978", "MSQuant:PTM-score", null),
+
     MS_MYRIMATCH_MVH(SearchEngineCvTermReference.MS_MYRIMATCH, "MS", "MS:1001589", "MyriMatch:MVH", null),
     MS_MYRIMATCH_MZFIDELITY(SearchEngineCvTermReference.MS_MYRIMATCH, "MS", "MS:1001590", "MyriMatch:mzFidelity", null),
     MS_MYRIMATCH_NMATCHS(SearchEngineCvTermReference.MS_MYRIMATCH, "MS", "MS:1001121", "number of matched peaks", null),
     MS_MYRIMATCH_NOMATCHS(SearchEngineCvTermReference.MS_MYRIMATCH, "MS", "MS:1001362", "number of unmatched peaks", null),
+
     MS_OMSSA_EVALUE(SearchEngineCvTermReference.MS_OMSSA, "MS", "MS:1001328", "OMSSA:evalue", null),
     MS_OMSSA_PVALUE(SearchEngineCvTermReference.MS_OMSSA, "MS", "MS:1001329", "OMSSA:pvalue", null),
+
     MS_PARAGON_CONFIDENCE(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1001167", "Paragon:confidence", null),
     MS_PARAGON_CONTRIB(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1001170", "Paragon:contrib", null),
     MS_PARAGON_EXPRESSION_CHANGE_P_VALUE(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1001169", "Paragon:expression change p-value", null),
@@ -72,15 +84,19 @@ public enum SearchEngineScoreCvTermReference {
     MS_PARAGON_SCORE(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1001166", "Paragon:score", null),
     MS_PARAGON_TOTAL_PROTSCORE(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1001165", "Paragon:total protscore", null),
     MS_PARAGON_UNUSED_PROTSCORE(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1001164", "Paragon:unused protscore", null),
+
     MS_PEAKS_PEPTIDESCORE(SearchEngineCvTermReference.MS_PEAKS_STUDIO, "MS", "MS:1001950", "PEAKS:peptideScore", null),
     MS_PEAKS_PROTEINSCORE(SearchEngineCvTermReference.MS_PEAKS_STUDIO, "MS", "MS:1001951", "PEAKS:proteinScore", null),
+
     MS_PEPTIDESHAKER_PSM_SCORE(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE,"MS", "MS:1002466", "PeptideShaker: PSM Score", null),
     MS_PEPTIDESHAKER_PSM_CONFIDENCE(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE,"MS", "MS:1002467", "PeptideShaker: PSM Confidence", null),
     MS_PEPTIDESHAKER_PROTEIN_SCORE(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE,"MS", "MS:1002470", "PeptideShaker: Protein Score", null),
     MS_PEPTIDESHAKER_PROTEIN_CONFIDENCE(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE,"MS", "MS:1002471", "PeptideShake: Protein Confidence", null),
+
     MS_PERCOLATOR_PEP(SearchEngineCvTermReference.MS_PERCOLATOR, "MS", "MS:1001493", "percolator:PEP", null),
     MS_PERCOLATOR_Q_VALUE(SearchEngineCvTermReference.MS_PERCOLATOR, "MS", "MS:1001491", "percolator:Q value", null),
     MS_PERCOLATOR_SCORE(SearchEngineCvTermReference.MS_PERCOLATOR, "MS", "MS:1001492", "percolator:score", null),
+
     MS_PHENYX_AC(SearchEngineCvTermReference.MS_PHENYX, "MS", "MS:1001388", "Phenyx:AC", null),
     MS_PHENYX_AUTO(SearchEngineCvTermReference.MS_PHENYX, "MS", "MS:1001393", "Phenyx:Auto", null),
     MS_PHENYX_ID(SearchEngineCvTermReference.MS_PHENYX, "MS", "MS:1001389", "Phenyx:ID", null),
@@ -92,14 +108,19 @@ public enum SearchEngineScoreCvTermReference {
     MS_PHENYX_PEPZSCORE(SearchEngineCvTermReference.MS_PHENYX, "MS", "MS:1001395", "Phenyx:Pepzscore", null),
     MS_PHENYX_SCORE(SearchEngineCvTermReference.MS_PHENYX, "MS", "MS:1001390", "Phenyx:Score", null),
     MS_PHENYX_USER(SearchEngineCvTermReference.MS_PHENYX, "MS", "MS:1001394", "Phenyx:User", null),
+
     MS_PROFOUND_CLUSTER(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1001499", "Profound:Cluster", null),
     MS_PROFOUND_CLUSTERRANK(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1001500", "Profound:ClusterRank", null),
     MS_PROFOUND_Z_VALUE(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1001498", "Profound:z value", null),
+
     MS_PROTEINEXTRACTOR_SCORE(SearchEngineCvTermReference.MS_PROTEINEXTRACTOR, "MS", "MS:1001507", "ProteinExtractor:Score", null),
+
     MS_PROTEINLYNX_LADDER_SCORE(SearchEngineCvTermReference.MS_PROTEINLYNX_GLOBAL_SERVER, "MS", "MS:1001571", "ProteinLynx:Ladder Score", null),
     MS_PROTEINLYNX_LOG_LIKELIHOOD(SearchEngineCvTermReference.MS_PROTEINLYNX_GLOBAL_SERVER, "MS", "MS:1001570", "ProteinLynx:Log Likelihood", null),
+
     MS_PROTEINPROSPECTOR_EXPECTATION_VALUE(SearchEngineCvTermReference.MS_PROTEINPROSPECTOR, "MS", "MS:1002045", "ProteinProspector:expectation value", null),
     MS_PROTEINPROSPECTOR_SCORE(SearchEngineCvTermReference.MS_PROTEINPROSPECTOR, "MS", "MS:1002044", "ProteinProspector:score", null),
+
     MS_PROTEINSCAPE_INTENSITYCOVERAGE(SearchEngineCvTermReference.MS_PROTEINSCAPE, "MS", "MS:1001505", "ProteinScape:IntensityCoverage", null),
     MS_PROTEINSCAPE_PFFSOLVEREXP(SearchEngineCvTermReference.MS_PROTEINSCAPE, "MS", "MS:1001503", "ProteinScape:PFFSolverExp", null),
     MS_PROTEINSCAPE_PFFSOLVERSCORE(SearchEngineCvTermReference.MS_PROTEINSCAPE, "MS", "MS:1001504", "ProteinScape:PFFSolverScore", null),
@@ -107,8 +128,10 @@ public enum SearchEngineScoreCvTermReference {
     MS_PROTEINSCAPE_SEARCHEVENTID(SearchEngineCvTermReference.MS_PROTEINSCAPE, "MS", "MS:1001496", "ProteinScape:SearchEventId", null),
     MS_PROTEINSCAPE_SEARCHRESULTID(SearchEngineCvTermReference.MS_PROTEINSCAPE, "MS", "MS:1001495", "ProteinScape:SearchResultId", null),
     MS_PROTEINSCAPE_SEQUESTMETASCORE(SearchEngineCvTermReference.MS_PROTEINSCAPE, "MS", "MS:1001506", "ProteinScape:SequestMetaScore", null),
+
     MS_SCAFFOLD_PEPTIDE_PROBABILITY(SearchEngineCvTermReference.MS_SCAFFOLD, "MS", "MS:1001568", "Scaffold:Peptide Probability", null),
     MS_SCAFFOLD_PROTEIN_PROBABILITY(SearchEngineCvTermReference.MS_SCAFFOLD, "MS", "MS:1001579", "Scaffold:Protein Probability", null),
+
     MS_SEQUEST_CONSENSUS_SCORE(SearchEngineCvTermReference.MS_SEQUEST, "MS", "MS:1001163", "SEQUEST:consensus score", null),
     MS_SEQUEST_DELTACN(SearchEngineCvTermReference.MS_SEQUEST, "MS", "MS:1001156", "SEQUEST:deltacn", null),
     MS_SEQUEST_DELTACNSTAR(SearchEngineCvTermReference.MS_SEQUEST, "MS", "MS:1002250", "SEQUEST:deltacnstar", null),
@@ -129,19 +152,30 @@ public enum SearchEngineScoreCvTermReference {
     MS_SEQUEST_TOTAL_IONS(SearchEngineCvTermReference.MS_SEQUEST, "MS", "MS:1001162", "SEQUEST:total ions", null),
     MS_SEQUEST_UNIQ(SearchEngineCvTermReference.MS_SEQUEST, "MS", "MS:1001158", "SEQUEST:Uniq", null),
     MS_SEQUEST_XCORR(SearchEngineCvTermReference.MS_SEQUEST, "MS", "MS:1001155", "SEQUEST:xcorr", null),
+
     MS_SONAR_SCORE(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1001502", "Sonar:Score", null),
+
     MS_SPECTRAST_DELTA(SearchEngineCvTermReference.MS_SPECTRAST, "MS", "MS:1001420", "SpectraST:delta", null),
     MS_SPECTRAST_DISCRIMINANT_SCORE_F(SearchEngineCvTermReference.MS_SPECTRAST, "MS", "MS:1001419", "SpectraST:discriminant score F", null),
     MS_SPECTRAST_DOT_BIAS(SearchEngineCvTermReference.MS_SPECTRAST, "MS", "MS:1001418", "SpectraST:dot_bias", null),
     MS_SPECTRAST_DOT(SearchEngineCvTermReference.MS_SPECTRAST, "MS", "MS:1001417", "SpectraST:dot", null),
+
     MS_SPECTRUMMILL_DISCRIMINANT_SCORE(SearchEngineCvTermReference.MS_SPECTRUM_MILL_FOR_MASSHUNTER_WORKSTATION, "MS", "MS:1001580", "SpectrumMill:Discriminant Score", null),
     MS_SPECTRUMMILL_SCORE(SearchEngineCvTermReference.MS_SPECTRUM_MILL_FOR_MASSHUNTER_WORKSTATION, "MS", "MS:1001572", "SpectrumMill:Score", null),
     MS_SPECTRUMMILL_SPI(SearchEngineCvTermReference.MS_SPECTRUM_MILL_FOR_MASSHUNTER_WORKSTATION, "MS", "MS:1001573", "SpectrumMill:SPI", null),
+
     MS_SQID_DELTASCORE(SearchEngineCvTermReference.MS_SQID, "MS", "MS:1001888", "SQID:deltaScore", null),
     MS_SQID_PROTEIN_SCORE(SearchEngineCvTermReference.MS_SQID, "MS", "MS:1001889", "SQID:protein score", null),
     MS_SQID_SCORE(SearchEngineCvTermReference.MS_SQID, "MS", "MS:1001887", "SQID:score", null),
+
     MS_X_TANDEM_EXPECT(SearchEngineCvTermReference.MS_X_TANDEM, "MS", "MS:1001330", "X!Tandem:expect", null),
     MS_X_TANDEM_HYPERSCORE(SearchEngineCvTermReference.MS_X_TANDEM, "MS", "MS:1001331", "X!Tandem:hyperscore", null),
+
+    // ProLuCID
+    MS_PROLUCID_XSCORE(SearchEngineCvTermReference.MS_PROLUCID, "MS", "MS:1002534", "The ProLuCID result 'XCorr'", null),
+    MS_PROLUCID_DELTA(SearchEngineCvTermReference.MS_PROLUCID, "MS", "MS:1002535", "The ProLuCID result 'DeltaCn'", null),
+
+
     MS_ZCORE_PROBSCORE(SearchEngineCvTermReference.MS_ANALYSIS_SOFTWARE, "MS", "MS:1001952", "ZCore:probScore", null),
 
     // PRIDE Ontology: children of PRIDE:0000049 (Peptide search engine output parameter)
@@ -200,15 +234,6 @@ public enum SearchEngineScoreCvTermReference {
         return score;
     }
 
-
-    //    public CVParam getParam(String score) {
-//        return new CVParam(cvLabel, accession, name, score);
-//    }
-//
-//    public CVParam getParam() {
-//        return new CVParam(cvLabel, accession, name, score);
-//    }
-
     public static SearchEngineScoreCvTermReference getSearchEngineScoreParamByName(String searchEngineName) {
         SearchEngineCvTermReference searchEngineParam = SearchEngineCvTermReference.findParamByName(searchEngineName);
 
@@ -228,6 +253,8 @@ public enum SearchEngineScoreCvTermReference {
             return SearchEngineScoreCvTermReference.MS_BYONIC_BEST_SCORE;
         } else if (SearchEngineCvTermReference.MS_PERCOLATOR.equals(searchEngineParam)) {
             return SearchEngineScoreCvTermReference.MS_PERCOLATOR_SCORE;
+        }else if  (SearchEngineCvTermReference.MS_PROLUCID.equals(searchEngineParam)){
+            return SearchEngineScoreCvTermReference.MS_PROLUCID_XSCORE;
         }
 
         if (searchEngineParam != null) {

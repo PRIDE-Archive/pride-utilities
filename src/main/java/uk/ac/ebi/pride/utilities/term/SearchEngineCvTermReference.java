@@ -104,6 +104,8 @@ public enum SearchEngineCvTermReference {
     MS_X_TANDEM("MS", "MS:1001476", "X!Tandem",  null),
     MS_XCALIBUR("MS", "MS:1000532", "Xcalibur",  null),
     MS_XCMS("MS", "MS:1001582", "XCMS",  null),
+    MS_PROLUCID("MS", "MS:1002596", "ProLuCID", null),
+
 
     //PRIDE SearchEngines
     PRIDE_PEPSPLICE("PRIDE", "PRIDE:0000145", "PepSplice",null),
