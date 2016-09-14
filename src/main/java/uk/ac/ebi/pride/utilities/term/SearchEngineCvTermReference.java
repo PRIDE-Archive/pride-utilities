@@ -109,7 +109,11 @@ public enum SearchEngineCvTermReference {
 
     //PRIDE SearchEngines
     PRIDE_PEPSPLICE("PRIDE", "PRIDE:0000145", "PepSplice",null),
-    PRIDE_PEPTIDE_PROPHET("PRIDE", "PRIDE:0000101", "PeptideProphet", null);
+    PRIDE_PEPTIDE_PROPHET("PRIDE", "PRIDE:0000101", "PeptideProphet", null),
+
+    //ProteoGrouper
+    MS_PROTEOGROUPER("MS", "MS:1002235", "ProteoGrouper:PDH score", null);
+
 
     private String cvLabel;
     private String accession;

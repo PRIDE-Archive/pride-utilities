@@ -197,7 +197,10 @@ public enum SearchEngineScoreCvTermReference {
     PRIDE_X_CORRELATION(SearchEngineCvTermReference.MS_SEQUEST, "PRIDE", "PRIDE:0000013", "X correlation", null),
     PRIDE_X_TANDEM_HYPERSCORE(SearchEngineCvTermReference.MS_X_TANDEM, "PRIDE", "PRIDE:0000176", "X!Tandem Hyperscore", null),
     PRIDE_XTANDEM_EXPECTANCY_SCORE(SearchEngineCvTermReference.MS_X_TANDEM, "PRIDE", "PRIDE:0000183", "X|Tandem expectancy score", null),
-    PRIDE_XTANDEM_ZSCORE(SearchEngineCvTermReference.MS_X_TANDEM, "PRIDE", "PRIDE:0000182", "X|Tandem Z score", null);
+    PRIDE_XTANDEM_ZSCORE(SearchEngineCvTermReference.MS_X_TANDEM, "PRIDE", "PRIDE:0000182", "X|Tandem Z score", null),
+
+    //ProteoGrouper
+    MS_PROTEOGROUPER_PDHSCORE(SearchEngineCvTermReference.MS_PROTEOGROUPER, "MS", "MS:1002235", "ProteoGrouper:PDH score", null);
 
     private SearchEngineCvTermReference searchEngineParam;
     private String cvLabel;
@@ -253,8 +256,10 @@ public enum SearchEngineScoreCvTermReference {
             return SearchEngineScoreCvTermReference.MS_BYONIC_BEST_SCORE;
         } else if (SearchEngineCvTermReference.MS_PERCOLATOR.equals(searchEngineParam)) {
             return SearchEngineScoreCvTermReference.MS_PERCOLATOR_SCORE;
-        }else if  (SearchEngineCvTermReference.MS_PROLUCID.equals(searchEngineParam)){
+        } else if  (SearchEngineCvTermReference.MS_PROLUCID.equals(searchEngineParam)){
             return SearchEngineScoreCvTermReference.MS_PROLUCID_XSCORE;
+        }  else if  (SearchEngineCvTermReference.MS_PROTEOGROUPER.equals(searchEngineParam)){
+            return SearchEngineScoreCvTermReference.MS_PROTEOGROUPER_PDHSCORE;
         }
 
         if (searchEngineParam != null) {

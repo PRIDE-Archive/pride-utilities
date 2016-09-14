@@ -215,7 +215,7 @@ public enum CvTermReference{
 
     //MS-GF
 
-    MS_MSGF_RAWSCORE("MS", "MS:1002049", "MS-GF raw score", "MS:    1001143"),
+    MS_MSGF_RAWSCORE("MS", "MS:1002049", "MS-GF raw score", "MS:1001143"),
     MS_MSGF_DENOVOSCORE("MS", "MS:1002050", "MS-GF de novo score", "MS:1001143"),
     MS_MSGF_SPECEVALUE("MS", "MS:1002052", "MS-GF spectral E-value", "MS:1001143"),
     MS_MSGF_EVALUE("MS", "MS:1002053", "MS-GF E-value", "MS:1001143"),
@@ -252,6 +252,9 @@ public enum CvTermReference{
     // ProLuCID
     MS_PROLUCID_XSCORE("MS", "MS:1002534", "The ProLuCID result 'XCorr'", "MS:1001143"),
     MS_PROLUCID_DELTA("MS", "MS:1002535", "The ProLuCID result 'DeltaCn'", "MS:1001143"),
+
+    // ProteoGrouper
+    MS_PROTEOGROUPER_PDHSCORE("MS", "MS:1002235", "ProteoGrouper:PDH score", "MS:1001116"),
 
     PROJECT_NAME("PRIDE", "PRIDE:0000097", "Project", "PRIDE:0000006"),
     EXPERIMENT_DESCRIPTION("PRIDE", "PRIDE:0000040", "Experiment Description", "PRIDE:0000006"),
