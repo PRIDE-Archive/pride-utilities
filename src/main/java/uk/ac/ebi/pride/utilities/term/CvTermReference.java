@@ -283,7 +283,13 @@ public enum CvTermReference{
     MS_FILE_FORMAT_WIFF("MS", "MS:1000562", "ABI WIFF format", "MS:1000560"),
     MS_ID_FORMAT_WIFF("MS","MS:1000770","WIFF nativeID format","MS:1000767"),
     MS_MGF_FILE_FORMAT("MS", "MS:1001062", "Mascot MGF format", "MS:1000560"),
-    MS_MGF_IDFORMAT_TITLE("MS", "MS:1000796", "spectrum title", "MS:1000499");
+    MS_MGF_IDFORMAT_TITLE("MS", "MS:1000796", "spectrum title", "MS:1000499"),
+
+    /**
+     * The phosphoRS site score in PSI-MS
+     */
+    MS_phosphoRS_SITE_SCORE("MS", "MS:1001971","phosphoRS site probability", "MS:1001968");
+
 
 
     private final String cvLabel;
