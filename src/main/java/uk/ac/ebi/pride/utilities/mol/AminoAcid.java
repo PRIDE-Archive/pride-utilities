@@ -2,7 +2,7 @@ package uk.ac.ebi.pride.utilities.mol;
 
 
 /**
- * Enumeration of 20 amino acids.
+ * Enumeration of the amino acids.
  * <p/>
  * @author rwang
  * @author ypriverol
@@ -29,6 +29,7 @@ public enum AminoAcid implements Mass {
     M("Methionine", 'M', "Met", "C5H9ONS", 131.04049, 131.1926),
     F("Phenylalanine", 'F', "Phe", "C9H9ON", 147.06841, 147.1766),
     P("Proline", 'P', "Pro", "C5H7ON", 97.05276, 97.1167),
+    O("Pyrrolysine", 'O', "Pyl", "C12H21N3O3", 109.0528, 109.13),
     S("Serine", 'S', "Ser", "C3H5O2N", 87.03203, 87.0782),
     T("Threonine", 'T', "Thr", "C4H7O2N", 101.04768, 101.1051),
     U("Selenocysteine", 'U', "SeC", "C3H5NOSe", 150.95363, 150.0379),
@@ -118,6 +119,8 @@ public enum AminoAcid implements Mass {
                 return AminoAcid.F;
             case 'P':
                 return AminoAcid.P;
+            case 'O':
+                return AminoAcid.O;
             case 'S':
                 return AminoAcid.S;
             case 'T':
@@ -136,7 +139,6 @@ public enum AminoAcid implements Mass {
                 return AminoAcid.Z;
             default:
                 return null;
-
         }
     }
 }
