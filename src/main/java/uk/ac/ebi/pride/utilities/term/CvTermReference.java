@@ -290,7 +290,6 @@ public enum CvTermReference{
     /** The phosphoRS site score in PSI-MS */
     MS_phosphoRS_SITE_SCORE("MS", "MS:1001971","phosphoRS site probability", "MS:1001968"),
 
-
     /** EFO Terms **/
 
     // Organism part Tissue or
@@ -309,7 +308,13 @@ public enum CvTermReference{
     EFO_AGE("EFO", "EFO:0000246", "age", "EFO:0000719"),
 
     // Ethic Group
-    EFO_ETHINIC_GROUP("EFO", "EFO:0001799", "ethnic group", "OBI:0000181");
+    ECO_ETHNIC_GROUP("EFO", "EFO:0001799", "ethnic group", "OBI:0000181"),
+
+    //Strain
+    EFO_STRAIN("EFO", "EFO:0005135", "strain", "OBI:0000181"),
+
+    // Developmental stage.
+    EFO_DEVELOPMENTAL_STAGE("EFO", "EFO:0000399", "developmental stage", "EFO:0001433");
 
 
     /** End EFO Terms **/
