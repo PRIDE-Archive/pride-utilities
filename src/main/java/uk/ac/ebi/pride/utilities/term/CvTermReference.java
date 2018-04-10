@@ -287,9 +287,7 @@ public enum CvTermReference{
     MS_MGF_FILE_FORMAT("MS", "MS:1001062", "Mascot MGF format", "MS:1000560"),
     MS_MGF_IDFORMAT_TITLE("MS", "MS:1000796", "spectrum title", "MS:1000499"),
 
-    /**
-     * The phosphoRS site score in PSI-MS
-     */
+    /** The phosphoRS site score in PSI-MS */
     MS_phosphoRS_SITE_SCORE("MS", "MS:1001971","phosphoRS site probability", "MS:1001968"),
 
 
@@ -302,7 +300,19 @@ public enum CvTermReference{
     EFO_ORGANISM("EFO", "EFO:0000634", "organism", "EFO:0001434"),
 
     // Disease Type
-    EFO_DISEASE("EFO", "EFO:0000408", "disease", "EFO:0001438");
+    EFO_DISEASE("EFO", "EFO:0000408", "disease", "EFO:0001438"),
+
+    // Sex of the individuals
+    EFO_SEX("EFO", "PATO:0000047", "sex", "EFO:0001443"),
+
+    //AGE of the individuals
+    EFO_AGE("EFO", "EFO:0000246", "age", "EFO:0000719"),
+
+    // Ethic Group
+    EFO_ETHINIC_GROUP("EFO", "EFO:0001799", "ethnic group", "OBI:0000181");
+
+
+    /** End EFO Terms **/
 
     private final String cvLabel;
     private final String accession;
