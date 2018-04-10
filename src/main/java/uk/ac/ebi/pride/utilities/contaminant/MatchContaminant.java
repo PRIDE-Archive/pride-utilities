@@ -1,47 +1,47 @@
 package uk.ac.ebi.pride.utilities.contaminant;
 
+import org.apache.commons.lang3.StringUtils;
 import uk.ac.ebi.pride.utilities.exception.ContaminantFileException;
 
 import java.io.*;
-import java.net.URI;
+import java.net.URL;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import org.apache.commons.io.FileUtils;
 
-/**
- * This code is licensed under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * ==Overview==
- * <p>
- * This class check if a peptide match a contaminant and try to remove it.
- * <p>
- * Created by ypriverol (ypriverol@gmail.com) on 24/11/2017.
- */
 public class MatchContaminant {
 
     private static MatchContaminant instance;
-
-    private String contaminantSequence = null;
+    private String contaminantSequence;
 
     /**
      * Private Constructor
      */
     private MatchContaminant() throws ContaminantFileException {
         try {
-            URI uriFile = MatchContaminant.class.getClassLoader().getResource("contaminants/contaminants.fasta").toURI();
-            File contaminantFile = new File(uriFile);
-            contaminantSequence = FastaReaderContaminantHelper.getInstance(contaminantFile).allSequences().toUpperCase();
+            File contaminatsFile;
+            URL url = MatchContaminant.class.getClassLoader().getResource("contaminants/contaminants.fasta");
+            if (url == null) {
+                throw new ContaminantFileException("Unable to read contaminant file: contaminants/contaminants.fasta");
+            } else {
+                try {
+                    contaminatsFile = File.createTempFile("contaminants", ".fasta");
+                    contaminatsFile.deleteOnExit();
+                    FileUtils.copyURLToFile(url, contaminatsFile);
+                } catch (IOException e) {
+                    throw new ContaminantFileException("Unable to read contaminant file: contaminants/contaminants.fasta");
+                }
+            }
+            contaminantSequence = FastaReaderContaminantHelper.getInstance(contaminatsFile).allSequences().toUpperCase();
         } catch (Exception e) {
-            throw new  ContaminantFileException("The Contaminant File has been found");
+            throw new ContaminantFileException("The Contaminant File cannot been found: \n" + e.toString());
         }
     }
 
     /**
      * Singleton class to retrieve the MatchContaminant
-     * @return
+     * @return the single MatchContaminant instance.
      */
     public static MatchContaminant instance() throws ContaminantFileException {
         if (instance == null){
@@ -51,61 +51,55 @@ public class MatchContaminant {
     }
 
 
+  /**
+   * Tests if the provided sequence is a contaminate or not.
+   * @param sequence the peptide sequence to test.
+   * @return true if the peptide is a contaminant, false otherwise.
+   */
     public boolean isPeptideContaminant(String sequence){
         return (contaminantSequence != null && contaminantSequence.contains(sequence.toUpperCase()));
     }
 
 
-    private static class FastaReaderContaminantHelper{
-
-        private BufferedReader br;
-        private int lineNumber;
+  /**
+   * Private class to handle reading in the contaminant FASTA file.
+   */
+  private static class FastaReaderContaminantHelper{
+        private LineNumberReader br;
         private String lastLineRead;
 
         /**
          * Get an instance of this class
-         * @return
          * @throws Exception If there is a problem
          */
-        public static FastaReaderContaminantHelper getInstance( File file ) throws Exception {
-
-
-            if ( file == null ) {
-
-                throw new IllegalArgumentException( "file may not be null" );
+        static FastaReaderContaminantHelper getInstance(File fastaFile) throws Exception {
+            if (fastaFile == null) {
+                throw new IllegalArgumentException("Fasta file cannot be null");
             }
-
-            if ( ! file.exists() ) {
-
-                throw new IllegalArgumentException( "File does not exist: " + file.getAbsolutePath() );
+            if (!fastaFile.exists()) {
+                throw new IllegalArgumentException("Fasta file does not exist: " + fastaFile.getPath());
             }
-
-            FileInputStream fileInputStream = new FileInputStream( file );
-
-            return getInstance( fileInputStream );
+            return getInstance(new FileInputStream(fastaFile));
         }
 
-
         /**
-         * Get an instance of this class
-         * @return
-         * @throws Exception If there is a problem
+         * Get an instance of this FastaReaderContaminantHelper class.
          */
-        public static FastaReaderContaminantHelper getInstance( InputStream inputStream ) throws Exception {
-
-            if (inputStream == null)
-                throw new IllegalArgumentException( "inputStream may not be null" );
-
-
+        static FastaReaderContaminantHelper getInstance(InputStream inputStream) {
+            if (inputStream == null) {
+                throw new IllegalArgumentException( "InputStream cannot be null" );
+            }
             FastaReaderContaminantHelper reader = new FastaReaderContaminantHelper();
-
-            InputStreamReader isr = new InputStreamReader(inputStream);
-            reader.br = new BufferedReader( isr );
-
+            reader.br = new LineNumberReader(new InputStreamReader(inputStream));
             return reader;
         }
 
-        public String allSequences() throws Exception {
+        /**
+         * Reads all the contaminant sequences.
+         * @return all the sequences, separated by new lines.
+         * @throws Exception problems reading from the contaminates FASTA file.
+         */
+        String allSequences() throws Exception {
             StringBuilder allSequences = new StringBuilder("");
             String line;
             while((line = readNext()) != null){
@@ -114,90 +108,65 @@ public class MatchContaminant {
             return allSequences.toString();
         }
 
-
-
-        public String readNext() throws Exception {
-
-		/*
-		 * It is assumed the last read correctly returned a Set of headers and a sequence
-		 * So, it is therefor assumed the BufferedReader's next line read will be a header line
-		 * followed by sequence lines (unless last read returned false (end of file) )
-		 */
-
+        /**
+         * Reads in the next sequence from the contaminates file.
+         * @return the next contaminates sequence, null for no further sequences left.
+         * @throws Exception problems reading from the contaminates FASTA file.
+         */
+        String readNext() throws Exception {
+            /* It is assumed the last read correctly returned a set of headers and a sequence.
+             * It is therefore assumed the BufferedReader's next line read will be a header line
+             * followed by sequence lines, unless there are no more lines left to read. */
             String line;
-            if( this.lineNumber == 0 )
+            if (this.br.getLineNumber()==0) {
                 this.lastLineRead = this.br.readLine();
-
+            }
             line = this.lastLineRead;
-
-            if (line == null) return null;			// we've reached the end of the file
-            this.lineNumber++;
-
-            if (!line.startsWith( ">" ) )
-                throw new ContaminantFileException( "Line Number: " + this.lineNumber + " - Expected header line, but line did not start with \">\"." );
-
-            String headerLine = line;
-
-            // the headers for this entry
-            Set<String> headers = new HashSet<>();
+            if (line==null) {
+                return null; // we've reached the end of the file
+            }
+            while (StringUtils.isBlank(line)) { //skip through empty lines
+                line = this.br.readLine();
+                this.lastLineRead = line;
+                if (line==null) {
+                    return null; // we've reached the end of the file
+                }
+            }
+            if (!line.startsWith( ">" ) ) {
+                throw new ContaminantFileException( "Line Number: " + this.br.getLineNumber() + " - Expected header line, but line did not start with \">\"." );
+            }
+            Set<String> headers = new HashSet<>(); // todo unused currently
             StringBuilder sequence = new StringBuilder();
-
             line = line.substring(1, line.length());	// strip off the leading ">" on the header line
-
-		/*
-		 * In FASTA files, multiple headers can be associated with the same sequence, and will
-		 * be present on the same line.  The separate headers are separated by the CONTROL-A
-		 * character, so we split on that here, and save each to the headers Set
-		 */
-            String[] lineHeaders = line.split("\\cA");
-            for (String lineHeader : lineHeaders) headers.add(lineHeader);
-
-            // The next line must be a sequence line
-            line = this.br.readLine();
+            /* In FASTA files, multiple headers can be associated with the same sequence, and will
+             * be present on the same line.  The separate headers are separated by the CONTROL-A
+             * character, so we split on that here, and save each to the headers Set */
+            Collections.addAll(headers, line.split("\\cA"));
+            line = this.br.readLine();  // must be a sequence line
             this.lastLineRead = line;
-
             while (line.startsWith( ";" )) {
-                this.lineNumber++;
                 line = this.br.readLine();
                 this.lastLineRead = line;
             }
-            if (line == null || line.startsWith( ">" ))
-                throw new ContaminantFileException( "Did not get a sequence line after a header line (Line Number: " + this.lineNumber );
-
-
-            // loop through the file, reading sequence lines until we hit the next header line (or the end of the file)
-            while (line != null) {
-
-                //If we've reached a new header line (marked with a leading ">"), then we're done.
-                if (line.startsWith( ">" )) {
+            if (StringUtils.isEmpty(line) || line.startsWith( ">" )) {
+                throw new ContaminantFileException( "Did not get a sequence line after a header line (Line Number: " + this.br.getLineNumber() );
+            }
+            while (line!=null) { // read sequence lines until we hit the next header line, or the end of the file
+                if (line.startsWith( ">" )) { // we've reached a new header line
                     break;
                 }
-
-                this.lineNumber++;
-
-                // build the sequence, if it's not a comment line
-                if (!line.startsWith( ";" )) {
-
-                    // upper-case the sequence line
+                if (!line.startsWith( ";" )) { // build the sequence, it's not a comment line
                     line = line.toUpperCase();
-
-                    sequence.append( line );
+                    sequence.append(line);
                 }
-
-                line  = this.br.readLine();
+                line = this.br.readLine();
                 this.lastLineRead = line;
             }
-
-            String sequenceString = sequence.toString();
-
-            sequenceString = sequenceString.trim();
-
-            // If we've made it here, we've read another sequence entry in the FASTA data
-            return sequenceString;
-
+            if (sequence.length()<1) {
+                throw new ContaminantFileException( "Unable to read the next sequence properly, perhaps the file is badly formatted? (Line Number: " + this.br.getLineNumber());
+            }
+            return sequence.toString().trim(); // the next sequence entry in the FASTA file
         }
-
-
     }
 }
 
