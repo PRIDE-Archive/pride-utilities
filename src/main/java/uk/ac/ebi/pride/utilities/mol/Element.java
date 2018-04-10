@@ -28,7 +28,7 @@ public enum Element {
     private String name;
     private double mass;
 
-    private Element(String name, double mass) {
+    Element(String name, double mass) {
         this.name = name;
         this.mass = mass;
     }

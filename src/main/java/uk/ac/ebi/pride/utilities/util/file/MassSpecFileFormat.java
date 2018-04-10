@@ -64,7 +64,7 @@ public enum MassSpecFileFormat {
     private boolean fileFormat;
 
 
-    private MassSpecFileFormat(String fileExtension, boolean fileFormat) {
+    MassSpecFileFormat(String fileExtension, boolean fileFormat) {
         this.fileExtension = fileExtension;
         this.fileFormat = fileFormat;
     }
@@ -333,7 +333,7 @@ public enum MassSpecFileFormat {
      * @return mass spec file format
      */
     private static MassSpecFileFormat checkGzippedFileContent(File file) throws IOException {
-        MassSpecFileFormat format = null;
+        MassSpecFileFormat format;
 
         GZIPInputStream gzipInputStream = null;
 

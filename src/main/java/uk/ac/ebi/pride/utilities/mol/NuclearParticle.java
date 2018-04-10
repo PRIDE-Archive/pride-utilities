@@ -24,8 +24,8 @@ public enum NuclearParticle implements Mass {
     private final double monoMass;
     private final double avgMass;
 
-    private NuclearParticle(String name, String formula, double charge,
-                            double monoMass, double avgMass) {
+    NuclearParticle(String name, String formula, double charge,
+                    double monoMass, double avgMass) {
         this.name = name;
         this.formula = formula;
         this.charge = charge;

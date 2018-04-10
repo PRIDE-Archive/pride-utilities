@@ -120,7 +120,7 @@ public enum SearchEngineCvTermReference {
     private String name;
     private String value;
 
-    private SearchEngineCvTermReference(String cvLabel, String accession, String name, String value) {
+    SearchEngineCvTermReference(String cvLabel, String accession, String name, String value) {
         this.cvLabel = cvLabel;
         this.accession = accession;
         this.name = name;

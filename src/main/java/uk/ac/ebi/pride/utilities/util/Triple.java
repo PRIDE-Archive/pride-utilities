@@ -51,8 +51,7 @@ public class Triple<K, V, T> implements Serializable{
 
         Triple triple = (Triple) o;
 
-        if (first != null ? !first.equals(triple.first) : triple.first != null) return false;
-        return !(second != null ? !second.equals(triple.second) : triple.second != null) && !(third != null ? !third.equals(triple.third) : triple.third != null);
+        return (first != null ? first.equals(triple.first) : triple.first == null) && !(second != null ? !second.equals(triple.second) : triple.second != null) && !(third != null ? !third.equals(triple.third) : triple.third != null);
 
     }
 

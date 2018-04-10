@@ -4,7 +4,6 @@ package uk.ac.ebi.pride.utilities.iongen.impl;
 import uk.ac.ebi.pride.utilities.iongen.model.PeptideIon;
 import uk.ac.ebi.pride.utilities.mol.*;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -35,12 +34,11 @@ public class DefaultPeptideIon implements PeptideIon {
         Map<Integer, PTModification> ptm = peptide.getPTM();
         Integer position;
         PTModification modification;
-        Iterator<Integer> it = ptm.keySet().iterator();
-        while (it.hasNext()) {
-            position = it.next();
+        for (Integer integer : ptm.keySet()) {
+            position = integer;
             modification = ptm.get(position);
-            if(modification.getMonoMassDeltas() != null && !modification.getMonoMassDeltas().isEmpty())
-               mass += modification.getMonoMassDeltas().get(0);
+            if (modification.getMonoMassDeltas() != null && !modification.getMonoMassDeltas().isEmpty())
+                mass += modification.getMonoMassDeltas().get(0);
         }
 
         return mass;
@@ -100,9 +98,7 @@ public class DefaultPeptideIon implements PeptideIon {
 
         DefaultPeptideIon that = (DefaultPeptideIon) o;
 
-        if (charge != that.charge) return false;
-        if (Double.compare(that.mass, mass) != 0) return false;
-        return !(peptide != null ? !peptide.equals(that.peptide) : that.peptide != null);
+        return charge == that.charge && Double.compare(that.mass, mass) == 0 && !(peptide != null ? !peptide.equals(that.peptide) : that.peptide != null);
 
     }
 

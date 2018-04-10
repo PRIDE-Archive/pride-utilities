@@ -12,6 +12,8 @@ import java.util.Collection;
  */
 public enum CvTermReference{
 
+
+    /** MS Terms **/
     MS_ANALYSIS_SOFTWARE("MS", "MS:1001456", "analysis software", "MS:1000531"),
     MS_SOFTWARE("MS","MS:1000531", "Software", "MS:0000000"),
     MS_DATABASE("MS", "MS:1001013", "database name", "MS:1001011"),
@@ -288,16 +290,26 @@ public enum CvTermReference{
     /**
      * The phosphoRS site score in PSI-MS
      */
-    MS_phosphoRS_SITE_SCORE("MS", "MS:1001971","phosphoRS site probability", "MS:1001968");
+    MS_phosphoRS_SITE_SCORE("MS", "MS:1001971","phosphoRS site probability", "MS:1001968"),
 
 
+    /** EFO Terms **/
+
+    // Organism part Tissue or
+    EFO_ORGANISM_PART("EFO", "EFO:0000635", "organism part", "EFO:0001434"),
+
+    // Organism (e.g Human ,etc )
+    EFO_ORGANISM("EFO", "EFO:0000634", "organism", "EFO:0001434"),
+
+    // Disease Type
+    EFO_DISEASE("EFO", "EFO:0000408", "disease", "EFO:0001438");
 
     private final String cvLabel;
     private final String accession;
     private final String name;
     private final String parentAccession;
 
-    private CvTermReference(String cvLabel, String accession, String name, String parentAccession) {
+    CvTermReference(String cvLabel, String accession, String name, String parentAccession) {
         this.cvLabel = cvLabel;
         this.accession = accession;
         this.name = name;

@@ -3,6 +3,7 @@ package uk.ac.ebi.pride.utilities.engine;
 import uk.ac.ebi.pride.utilities.term.CvTermReference;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -56,12 +57,12 @@ public enum SearchEngineType {
             CvTermReference.MS_PEPTIDESHAKER_PROTEIN_SCORE,
             CvTermReference.MS_PEPTIDESHAKER_PROTEIN_CONFIDENCE)),
 
-    GENERIC_SEARCH_ENGINE(Arrays.asList(CvTermReference.MS_SEARCH_ENGINE_SPECIFIC_SCORE));
+    GENERIC_SEARCH_ENGINE(Collections.singletonList(CvTermReference.MS_SEARCH_ENGINE_SPECIFIC_SCORE));
 
 
     private List<CvTermReference> searchEngineScores;
 
-    private SearchEngineType(List<CvTermReference> searchEngineScores) {
+    SearchEngineType(List<CvTermReference> searchEngineScores) {
         this.searchEngineScores = searchEngineScores;
     }
 

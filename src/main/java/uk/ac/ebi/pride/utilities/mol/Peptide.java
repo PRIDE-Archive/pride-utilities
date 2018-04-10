@@ -178,12 +178,11 @@ public class Peptide {
 
         Integer position;
         PTModification modification;
-        Iterator<Integer> it = modifications.keySet().iterator();
-        while (it.hasNext()) {
-            position = it.next();
+        for (Integer integer : modifications.keySet()) {
+            position = integer;
             modification = modifications.get(position);
 
-            if (! addModification(position, modification)) {
+            if (!addModification(position, modification)) {
                 //rollback to save point.
                 ptm = tmpPTM;
                 return false;
@@ -268,9 +267,7 @@ public class Peptide {
         if (acidList != null ? !acidList.equals(peptide.acidList) : peptide.acidList != null) return false;
         if (c_terminal != null ? !c_terminal.equals(peptide.c_terminal) : peptide.c_terminal != null) return false;
         if (n_terminal != null ? !n_terminal.equals(peptide.n_terminal) : peptide.n_terminal != null) return false;
-        if (ptm != null ? !ptm.equals(peptide.ptm) : peptide.ptm != null) return false;
-
-        return true;
+        return ptm != null ? ptm.equals(peptide.ptm) : peptide.ptm == null;
     }
 
     @Override

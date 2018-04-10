@@ -13,9 +13,9 @@ public class MathUtils {
         double lowest = Double.POSITIVE_INFINITY;
         double highest = Double.NEGATIVE_INFINITY;
 
-        for (int i = 0; i < data.length; i++) {
-            if (lowest  > data[i]) lowest = data[i];
-            if (highest < data[i]) highest = data[i];
+        for (double aData : data) {
+            if (lowest > aData) lowest = aData;
+            if (highest < aData) highest = aData;
         }
         return new double[]{lowest, highest};
     }

@@ -48,9 +48,9 @@ public enum AminoAcid implements Mass {
     private final double monoMass;
     private final double avgMass;
 
-    private AminoAcid(String name, char oneLetterCode,
-                      String threeLetterCode, String chemicalFormula,
-                      double monoMass, double avgMass) {
+    AminoAcid(String name, char oneLetterCode,
+              String threeLetterCode, String chemicalFormula,
+              double monoMass, double avgMass) {
         this.name = name;
         this.oneLetterCode = oneLetterCode;
         this.threeLetterCode = threeLetterCode;

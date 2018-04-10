@@ -45,7 +45,7 @@ public class ImmoniumIon implements Comparable<ImmoniumIon> {
     public String toString() {
         StringBuilder builder = new StringBuilder();
 
-        builder.append(typeName + "_" + acid.getOneLetterCode() + position);
+        builder.append(typeName).append("_").append(acid.getOneLetterCode()).append(position);
         if (charge > 1) {
             // if positive charge == 1 do not display +
             for (int i = 1; i <= charge; i++) {

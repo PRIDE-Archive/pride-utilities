@@ -4,8 +4,6 @@ import uk.ac.ebi.pride.utilities.exception.ContaminantFileException;
 
 import java.io.*;
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -109,7 +107,7 @@ public class MatchContaminant {
 
         public String allSequences() throws Exception {
             StringBuilder allSequences = new StringBuilder("");
-            String line = "";
+            String line;
             while((line = readNext()) != null){
                 allSequences.append(line).append("\n");
             }
@@ -126,7 +124,7 @@ public class MatchContaminant {
 		 * followed by sequence lines (unless last read returned false (end of file) )
 		 */
 
-            String line = null;
+            String line;
             if( this.lineNumber == 0 )
                 this.lastLineRead = this.br.readLine();
 
@@ -152,7 +150,7 @@ public class MatchContaminant {
 		 * character, so we split on that here, and save each to the headers Set
 		 */
             String[] lineHeaders = line.split("\\cA");
-            for (int i = 0; i < lineHeaders.length; i++) headers.add( new String( lineHeaders[i] ) );
+            for (String lineHeader : lineHeaders) headers.add(lineHeader);
 
             // The next line must be a sequence line
             line = this.br.readLine();

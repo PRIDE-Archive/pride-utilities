@@ -40,7 +40,7 @@ public class ProductIonFactory {
     public  static List<ImmoniumIon> createImmoniumProductIons(PrecursorIon precursorIon, int charge) {
         List<ImmoniumIon> productIons = new ArrayList<ImmoniumIon>();
 
-        ImmoniumIon ion = null;
+        ImmoniumIon ion;
         //the immonium product ions cleavages position is [1..length]
         for (int i = 0; i < precursorIon.getPeptide().getLength(); i++) {
             ion = new ImmoniumIon(precursorIon, i, charge);

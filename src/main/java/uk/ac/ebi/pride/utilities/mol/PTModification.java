@@ -55,12 +55,7 @@ public class PTModification {
 
         PTModification that = (PTModification) o;
 
-        if (avgMassDeltas != null ? !avgMassDeltas.equals(that.avgMassDeltas) : that.avgMassDeltas != null)
-            return false;
-        if (label != null ? !label.equals(that.label) : that.label != null) return false;
-        if (monoMassDeltas != null ? !monoMassDeltas.equals(that.monoMassDeltas) : that.monoMassDeltas != null)
-            return false;
-        return !(name != null ? !name.equals(that.name) : that.name != null) && !(type != null ? !type.equals(that.type) : that.type != null);
+        return (avgMassDeltas != null ? avgMassDeltas.equals(that.avgMassDeltas) : that.avgMassDeltas == null) && (label != null ? label.equals(that.label) : that.label == null) && (monoMassDeltas != null ? monoMassDeltas.equals(that.monoMassDeltas) : that.monoMassDeltas == null) && !(name != null ? !name.equals(that.name) : that.name != null) && !(type != null ? !type.equals(that.type) : that.type != null);
 
     }
 

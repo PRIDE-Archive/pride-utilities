@@ -121,10 +121,10 @@ public enum QuantCvTermReference {
     private final String name;
     private final String parentAccession;
 
-    private QuantCvTermReference(String cvLabel,
-                                 String accession,
-                                 String name,
-                                 String parentAccession) {
+    QuantCvTermReference(String cvLabel,
+                         String accession,
+                         String name,
+                         String parentAccession) {
         this.cvLabel = cvLabel;
         this.accession = accession;
         this.name = name;

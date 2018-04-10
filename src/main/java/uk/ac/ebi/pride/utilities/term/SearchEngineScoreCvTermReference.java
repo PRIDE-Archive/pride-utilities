@@ -208,7 +208,7 @@ public enum SearchEngineScoreCvTermReference {
     private String name;
     private String score;
 
-    private SearchEngineScoreCvTermReference(SearchEngineCvTermReference searchEngineParam, String cvLabel, String accession, String name, String score) {
+    SearchEngineScoreCvTermReference(SearchEngineCvTermReference searchEngineParam, String cvLabel, String accession, String name, String score) {
         this.cvLabel = cvLabel;
         this.accession = accession;
         this.name = name;

@@ -154,13 +154,13 @@ public class AminoAcidSequence implements Mass {
      * @return String   three letter code string of the peptide.
      */
     public String getThreeLetterCodeString() {
-        String code = "";
+        StringBuilder code = new StringBuilder();
 
         for (AminoAcid aminoAcid : aminoAcids) {
-            code += aminoAcid.getThreeLetterCode();
+            code.append(aminoAcid.getThreeLetterCode());
         }
 
-        return code;
+        return code.toString();
     }
 
     /**
@@ -169,13 +169,13 @@ public class AminoAcidSequence implements Mass {
      * @return String   one letter code string of the peptide.
      */
     public String getOneLetterCodeString() {
-        String code = "";
+        StringBuilder code = new StringBuilder();
 
         for (AminoAcid aminoAcid : aminoAcids) {
-            code += aminoAcid.getOneLetterCode();
+            code.append(aminoAcid.getOneLetterCode());
         }
 
-        return code;
+        return code.toString();
     }
 
     @Override

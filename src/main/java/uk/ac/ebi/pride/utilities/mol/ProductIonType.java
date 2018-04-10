@@ -32,7 +32,7 @@ public enum ProductIonType {
     private NeutralLoss loss;
     private ProductIonPair pair;
 
-    private ProductIonType(String name, FragmentIonType group, NeutralLoss loss, ProductIonPair pair) {
+    ProductIonType(String name, FragmentIonType group, NeutralLoss loss, ProductIonPair pair) {
         this.name = name;
         this.group = group;
         this.loss = loss;

@@ -9,16 +9,12 @@ import java.util.*;
  * @author Qingwei XU
  */
 public class TestUtils {
-    private static String INPUT = "INPUT:";
-    private static String OUTPUT = "OUTPUT:";
-    private static String END = "END;";
-    private static String COMMENT = "#";
 
     public static Map<String, List<String>> generateTestset(String fileName) {
         BufferedReader reader = null;
         Map<String, List<String>> testSet = new HashMap<String, List<String>>();
 
-        String line = null;
+        String line;
         String input = null;
         List<String> outputs = null;
         InputStream in = TestUtils.class.getResourceAsStream(fileName);
@@ -27,15 +23,19 @@ public class TestUtils {
 
             reader = new BufferedReader(new InputStreamReader(in));
             while ((line = reader.readLine()) != null) {
+                String COMMENT = "#";
                 if (line.startsWith(COMMENT)) {
                     continue;
                 }
 
+                String INPUT = "INPUT:";
+                String OUTPUT = "OUTPUT:";
                 if (line.startsWith(INPUT)) {
                     // new test case
                     input = reader.readLine();
                     outputs = new ArrayList<String>();
                 } else if (line.startsWith(OUTPUT)) {
+                    String END = "END;";
                     while (! (line = reader.readLine()).startsWith(END)) {
                         outputs.add(line);
                     }
@@ -43,8 +43,6 @@ public class TestUtils {
                 }
 
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

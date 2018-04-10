@@ -9,6 +9,7 @@ package uk.ac.ebi.pride.utilities.mol;
  * Time: 09:54:54
  */
 public enum Atom implements Mass {
+
     //todo: check the monomass and avgmass values.
     O_16("oxygen-16 atom", "O", 0, 15.99491463, 15.99940),
     C_12("carbon-12 atom", "C", 0, 12, 12.01070);
@@ -19,8 +20,8 @@ public enum Atom implements Mass {
     private final double monoMass;
     private final double avgMass;
 
-    private Atom(String name, String formula,
-                 double charge, double monoMass, double avgMass) {
+    Atom(String name, String formula,
+         double charge, double monoMass, double avgMass) {
         this.name = name;
         this.formula = formula;
         this.charge = charge;
