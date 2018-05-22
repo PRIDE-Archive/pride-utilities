@@ -4,7 +4,7 @@ package uk.ac.ebi.pride.utilities.iongen.ion;
  * FragmentIonType defines different type of fragment ion annotations.
  * Refer to FragmentIonTypeColor for specific color.
  *
- * @author: rwang
+ * @author rwang
  * @author: ypriverol
  */
 public class FragmentIonType implements Cloneable {

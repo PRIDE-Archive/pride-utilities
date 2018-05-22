@@ -128,7 +128,7 @@ public class PeakSet extends TreeSet<Peak> {
         // create a new peak set, therefore, we can remove a peak from peak set safely.
         PeakSet result = new PeakSet(set);
 
-        if (comparator.compare(mz - startPeak.getMz(), interval) > 0) {
+        if (comparator.compare(mz - Objects.requireNonNull(startPeak).getMz(), interval) > 0) {
             result.remove(startPeak);
         }
 

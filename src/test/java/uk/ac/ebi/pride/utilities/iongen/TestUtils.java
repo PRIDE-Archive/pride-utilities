@@ -37,7 +37,7 @@ public class TestUtils {
                 } else if (line.startsWith(OUTPUT)) {
                     String END = "END;";
                     while (! (line = reader.readLine()).startsWith(END)) {
-                        outputs.add(line);
+                        Objects.requireNonNull(outputs).add(line);
                     }
                     testSet.put(input, outputs);
                 }

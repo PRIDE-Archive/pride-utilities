@@ -83,7 +83,7 @@ public enum SearchEngineType {
     /**
      * Return A SearchEngineType using the name of the SearchEngine
      *
-     * @param name
+     * @param name Search engine name
      * @return SearchEngineType
      */
     public static SearchEngineType getByName(String name) {

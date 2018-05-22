@@ -47,7 +47,7 @@ public class DefaultPeptideIon implements PeptideIon {
     /**
      * Create a peptide ion.
      * @param peptide can not set null, otherwise throw NullPointerException.
-     * @param charge
+     * @param charge Charge
      */
     public DefaultPeptideIon(Peptide peptide, int charge) {
         if (peptide == null) {

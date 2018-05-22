@@ -8,6 +8,7 @@ import uk.ac.ebi.pride.utilities.mol.PTModification;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static uk.ac.ebi.pride.utilities.mol.NeutralLoss.WATER_LOSS;
 import static uk.ac.ebi.pride.utilities.mol.NuclearParticle.PROTON;
@@ -150,7 +151,7 @@ public class MoleculeUtilities {
         for (int i = 0; i < seq.length(); i++) {
             char aa = seq.charAt(i);
             AminoAcid aminoAcid = getAminoacid(aa);
-            theoreticalMass += aminoAcid.getMonoMass();
+            theoreticalMass += Objects.requireNonNull(aminoAcid).getMonoMass();
         }
 
         for (double mass : masses) {

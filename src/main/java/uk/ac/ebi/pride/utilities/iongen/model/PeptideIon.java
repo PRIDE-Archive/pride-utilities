@@ -4,7 +4,7 @@ import uk.ac.ebi.pride.utilities.mol.Peptide;
 
 /**
  * When a peptide with charges, we call it peptide ion. {@link PrecursorIon} and {@link ProductIon}
- * are all belong to peptide ions. In the {@link uk.ac.ebi.pride.iongen.model.impl.DefaultPeptideIon}
+ * are all belong to peptide ions. In the {@link uk.ac.ebi.pride.utilities.iongen.impl.DefaultPeptideIon}
  * class, we provide the default implement, which pay main attention on mass and m/z calculate.
  *
  * @author Qingwei XU

@@ -7,9 +7,7 @@ import java.io.Serializable;
  * Tuple stores two elements.
  *
  * @author rwang
- * @quthor ypriverol
- * Date: 08-Sep-2010
- * Time: 11:17:04
+ * @author ypriverol
  */
 public class Tuple <K, V> implements Serializable {
     private K key;
