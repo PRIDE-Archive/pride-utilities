@@ -1,7 +1,7 @@
 package uk.ac.ebi.pride.utilities.iongen;
 
+import org.junit.Assert;
 import org.junit.Test;
-import uk.ac.ebi.pride.utilities.iongen.model.IonCleavageException;
 import uk.ac.ebi.pride.utilities.iongen.model.PrecursorIon;
 import uk.ac.ebi.pride.utilities.iongen.model.ProductIon;
 import uk.ac.ebi.pride.utilities.iongen.impl.DefaultPrecursorIon;
@@ -14,7 +14,6 @@ import uk.ac.ebi.pride.utilities.util.ProductIonFactory;
 
 import java.util.*;
 
-import static junit.framework.Assert.assertTrue;
 
 /**
  *
@@ -33,7 +32,7 @@ public class ProductIonFactoryTest {
      * This is a demo code to generate default product ions.
      */
     @Test
-    public void testDefaultProductIons() throws IonCleavageException {
+    public void testDefaultProductIons() {
         String sequence = "SSEDPNEDIVER";
         PrecursorIon precursorIon = new DefaultPrecursorIon(sequence, 3);
         List<ProductIon> ionList = ProductIonFactory.createDefaultProductIons(precursorIon, ProductIonType.Y, 2);
@@ -69,7 +68,7 @@ public class ProductIonFactoryTest {
     }
 
     @Test
-    public void testModificatedProductIons() throws IonCleavageException {
+    public void testModificatedProductIons() {
         String sequence = "HEAMITDLEER";
 
         PrecursorIon precursorIon = new DefaultPrecursorIon(sequence, 3);
@@ -122,7 +121,7 @@ public class ProductIonFactoryTest {
 //                System.out.println();
 //            }
 
-            assertTrue(Math.abs(ion.getMassOverCharge() - mascot) <= Constants.DEVIATION);
+            Assert.assertTrue(Math.abs(ion.getMassOverCharge() - mascot) <= Constants.DEVIATION);
         }
     }
 
@@ -216,7 +215,7 @@ public class ProductIonFactoryTest {
         List<ProductIon> aIonList = ProductIonFactory.createDefaultProductIons(precursorIon, ProductIonType.A, 1);
 
         for (int i = 1; i < ionList.size() - 2; i++) {
-            assertTrue(Math.abs(ionList.get(i).getMass() - (aIonList.get(i).getMass() - bIonList.get(i - 1).getMass())) <= Constants.DEVIATION);
+            Assert.assertTrue(Math.abs(ionList.get(i).getMass() - (aIonList.get(i).getMass() - bIonList.get(i - 1).getMass())) <= Constants.DEVIATION);
         }
 
         // test modification peptide generate immonium ions.
@@ -236,7 +235,7 @@ public class ProductIonFactoryTest {
         aIonList = ProductIonFactory.createDefaultProductIons(precursorIon, ProductIonType.A, 1);
 
         for (int i = 1; i < ionList.size() - 1; i++) {
-            assertTrue(Math.abs(ionList.get(i).getMass() - (aIonList.get(i).getMass() - bIonList.get(i - 1).getMass())) <= Constants.DEVIATION);
+            Assert.assertTrue(Math.abs(ionList.get(i).getMass() - (aIonList.get(i).getMass() - bIonList.get(i - 1).getMass())) <= Constants.DEVIATION);
         }
     }
 }

@@ -8,6 +8,6 @@ package uk.ac.ebi.pride.utilities.mol;
  * Time: 09:31:57
  */
 public interface Mass {
-    public double getMonoMass();
-    public double getAvgMass();
+    double getMonoMass();
+    double getAvgMass();
 }

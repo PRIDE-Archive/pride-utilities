@@ -20,5 +20,5 @@ public interface PrecursorIon extends PeptideIon {
      * @return {@link ProductIon}, can not return a null.
      * @throws IonCleavageException, when user set position and charge overflow the range of setting.
      */
-    public ProductIon getProductIon(ProductIonType type, int position, int charge) throws IonCleavageException;
+    ProductIon getProductIon(ProductIonType type, int position, int charge) throws IonCleavageException;
 }

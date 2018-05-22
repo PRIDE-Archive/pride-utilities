@@ -1,10 +1,11 @@
 package uk.ac.ebi.pride.utilities.iongen.model;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.assertTrue;
+
 
 /**
  * @author qingwei
@@ -18,13 +19,13 @@ public class PeakSetTest {
         PeakSet peakSet = PeakSet.getInstance(mzArray, intensityArray);
 
         List<PeakSet> peakSetList = peakSet.splitWindow(100);
-        assertTrue(peakSetList.size() == 20);
+        Assert.assertEquals(20, peakSetList.size());
 
         int sum = 0;
         for (PeakSet s : peakSetList) {
             sum += s.size();
         }
-        assertTrue(sum == peakSet.size());
+        Assert.assertEquals(sum, peakSet.size());
     }
 
     @Test
@@ -34,16 +35,16 @@ public class PeakSetTest {
         PeakSet peakSet = PeakSet.getInstance(mzArray, intensityArray);
 
         PeakSet top5 = peakSet.getTopIntensityPeak(5);
-        assertTrue(top5.size() == 5);
+        Assert.assertEquals(5, top5.size());
 
         PeakSet top1 = peakSet.getTopIntensityPeak(1);
-        assertTrue(top1.first().equals(top5.getMaxIntensityPeak()));
+        Assert.assertEquals(top1.first(), top5.getMaxIntensityPeak());
 
         PeakSet all = peakSet.getTopIntensityPeak(mzArray.length);
-        assertTrue(all.equals(peakSet));
+        Assert.assertEquals(all, peakSet);
 
         all = peakSet.getTopIntensityPeak(mzArray.length + 1);
-        assertTrue(all.equals(peakSet));
+        Assert.assertEquals(all, peakSet);
     }
 
     @Test
@@ -54,27 +55,27 @@ public class PeakSetTest {
 
         double tolerance = 0.2;
         PeakSet sub0 = peakSet.subSet(2, tolerance);
-        assertTrue(sub0.size() == 0);
+        Assert.assertEquals(0, sub0.size());
 
         sub0 = peakSet.subSet(3, tolerance);
-        assertTrue(sub0.size() == 1);
+        Assert.assertEquals(1, sub0.size());
 
         sub0 = peakSet.subSet(4, tolerance);
-        assertTrue(sub0.size() == 3);
+        Assert.assertEquals(3, sub0.size());
 
         sub0 = peakSet.subSet(4.5, tolerance);
-        assertTrue(sub0.size() == 2);
+        Assert.assertEquals(2, sub0.size());
 
         sub0 = peakSet.subSet(4.9, tolerance);
-        assertTrue(sub0.size() == 2);
+        Assert.assertEquals(2, sub0.size());
 
         sub0 = peakSet.subSet(6, tolerance);
-        assertTrue(sub0.size() == 1);
+        Assert.assertEquals(1, sub0.size());
 
         sub0 = peakSet.subSet(6.2, tolerance);
-        assertTrue(sub0.size() == 1);
+        Assert.assertEquals(1, sub0.size());
 
         sub0 = peakSet.subSet(8, tolerance);
-        assertTrue(sub0.size() == 0);
+        Assert.assertEquals(0, sub0.size());
     }
 }

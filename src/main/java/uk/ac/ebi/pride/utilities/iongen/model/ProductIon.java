@@ -13,23 +13,23 @@ public interface ProductIon extends PeptideIon, Comparable<ProductIon> {
      *
      * @return {@link ProductIonType}
      */
-    public ProductIonType getType();
+    ProductIonType getType();
 
     /**
      *
      * @return {@link PrecursorIon}
      */
-    public PrecursorIon getPrecursorIon();
+    PrecursorIon getPrecursorIon();
 
     /**
      *
      * @return the product ion charge.
      */
-    public int getCharge();
+    int getCharge();
 
     /**
      *
      * @return the cleavage position of product ion.
      */
-    public int getPosition();
+    int getPosition();
 }

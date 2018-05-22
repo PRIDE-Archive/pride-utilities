@@ -47,9 +47,7 @@ public final class FileUtil {
      * @throws java.io.IOException exception while reading the given file
      */
     public static boolean isBinaryFile(File file) throws IOException {
-        InputStream in = null;
-        try {
-            in = new FileInputStream(file);
+        try (InputStream in = new FileInputStream(file)) {
             int size = file.length() > 500 ? 500 : new Long(file.length()).intValue();
             byte[] bytes = new byte[size];
 
@@ -65,19 +63,13 @@ public final class FileUtil {
                     return true;
                 }
             }
-        } finally {
-            if (in != null) {
-                in.close();
-            }
         }
 
         return false;
     }
 
     public static String tail(File file, int numberOfChars) throws IOException {
-        RandomAccessFile fileHandler = null;
-        try {
-            fileHandler = new java.io.RandomAccessFile(file, "r");
+        try (RandomAccessFile fileHandler = new RandomAccessFile(file, "r")) {
             long fileLength = file.length() - 1;
             StringBuilder sb = new StringBuilder();
 
@@ -88,9 +80,6 @@ public final class FileUtil {
             }
 
             return sb.reverse().toString();
-        } finally {
-            if (fileHandler != null)
-                fileHandler.close();
         }
     }
 
@@ -166,14 +155,8 @@ public final class FileUtil {
     }
 
     public static boolean isFileEmpty(File file) throws IOException {
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(file));
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             return reader.readLine() == null;
-        } finally {
-            if (reader != null) {
-                reader.close();
-            }
         }
 
     }

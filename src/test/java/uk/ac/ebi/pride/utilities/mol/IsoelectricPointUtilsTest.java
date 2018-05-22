@@ -1,10 +1,10 @@
 package uk.ac.ebi.pride.utilities.mol;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
 
 /**
  * @author ypriverol
@@ -15,22 +15,22 @@ public class IsoelectricPointUtilsTest {
     private IsoelectricPointUtils.BjellpI bjellpI;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         bjellpI = new IsoelectricPointUtils.BjellpI();
 
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
 
     }
 
     @Test
-    public void testCalculate() throws Exception {
+    public void testCalculate() {
         String peptideSeq = "GGTAVILDIFR";
         peptideSeq = peptideSeq.replace("*","");
         peptideSeq = IsoelectricPointUtils.replaceSpecialAA(peptideSeq);
         double pi = bjellpI.calculate(peptideSeq);
-        assertTrue(pi == 5.84);
+        Assert.assertEquals(5.84, pi, 0.0);
     }
 }

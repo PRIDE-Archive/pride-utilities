@@ -14,21 +14,21 @@ public interface PeptideIon {
     /**
      * @return the {@link Peptide} of ion.
      */
-    public Peptide getPeptide();
+    Peptide getPeptide();
 
     /**
      * @return charge count of ion. The charge can be positron or negative electron. 0 means no charge on ion.
      */
-    public int getCharge();
+    int getCharge();
 
     /**
      * @return the mass value of ion.
      */
-    public double getMass();
+    double getMass();
 
     /**
      *
      * @return the m/z value of ion.
      */
-    public double getMassOverCharge();
+    double getMassOverCharge();
 }

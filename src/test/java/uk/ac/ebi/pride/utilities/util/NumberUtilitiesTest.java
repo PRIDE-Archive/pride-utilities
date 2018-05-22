@@ -1,12 +1,9 @@
 package uk.ac.ebi.pride.utilities.util;
 
+import org.junit.Assert;
 import org.junit.Test;
 import uk.ac.ebi.pride.utilities.mol.GraviUtilities;
 import uk.ac.ebi.pride.utilities.mol.IsoelectricPointUtils;
-
-import static junit.framework.Assert.assertFalse;
-import static junit.framework.Assert.assertTrue;
-
 
 /**
  * @author rwang
@@ -15,27 +12,27 @@ import static junit.framework.Assert.assertTrue;
 
 public class NumberUtilitiesTest {
     @Test
-    public void testIsNumber() throws Exception {
+    public void testIsNumber() {
         String str = "7.60056300136405E-4";
-        assertTrue(NumberUtilities.isNumber(str));
+        Assert.assertTrue(NumberUtilities.isNumber(str));
         str = "7.60056300136405E--4";
-        assertFalse(NumberUtilities.isNumber(str));
+        Assert.assertFalse(NumberUtilities.isNumber(str));
         str = "7.60056300e136405E-4";
-        assertFalse(NumberUtilities.isNumber(str));
+        Assert.assertFalse(NumberUtilities.isNumber(str));
     }
 
     @Test
-    public void testIsInteger() throws Exception {
-
-    }
-
-    @Test
-    public void testIsNonNegativeInteger() throws Exception {
+    public void testIsInteger() {
 
     }
 
     @Test
-    public void testScaleDouble() throws Exception {
+    public void testIsNonNegativeInteger() {
+
+    }
+
+    @Test
+    public void testScaleDouble() {
 
     }
     @Test

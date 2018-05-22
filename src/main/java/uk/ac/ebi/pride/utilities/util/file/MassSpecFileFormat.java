@@ -143,7 +143,7 @@ public enum MassSpecFileFormat {
      * @param url input URL
      * @return MassSpecFileFormat  mass spec file format
      */
-    public static MassSpecFileFormat checkFormat(URL url) throws IOException {
+    public static MassSpecFileFormat checkFormat(URL url) {
 
         MassSpecFileFormat format = null;
 
@@ -232,12 +232,10 @@ public enum MassSpecFileFormat {
      * @param file xml file
      * @return MassSpecFileFormat  mass spec file format
      */
-    private static MassSpecFileFormat checkXmlFormat(File file) throws IOException {
+    private static MassSpecFileFormat checkXmlFormat(File file) {
         MassSpecFileFormat format = null;
-        BufferedReader reader = null;
 
-        try {
-            reader = new BufferedReader(new FileReader(file));
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             // read first ten lines
             StringBuilder content = new StringBuilder();
             for (int i = 0; i < 10; i++) {
@@ -247,10 +245,6 @@ public enum MassSpecFileFormat {
             format = detectFormat(content.toString());
         } catch (IOException ioe) {
             //do nothing here
-        } finally {
-            if (reader != null) {
-                reader.close();
-            }
         }
 
         return format;
@@ -259,9 +253,7 @@ public enum MassSpecFileFormat {
     private static MassSpecFileFormat checkZippedFileExtension(File file) throws IOException {
         MassSpecFileFormat format = null;
 
-        ZipFile zipFile = null;
-        try {
-            zipFile = new ZipFile(file);
+        try (ZipFile zipFile = new ZipFile(file)) {
 
             Enumeration<? extends ZipEntry> entries = zipFile.entries();
             if (entries.hasMoreElements()) {
@@ -269,10 +261,6 @@ public enum MassSpecFileFormat {
                 String fileName = entry.getName();
                 String fileExtension = FileUtil.getFileExtension(fileName);
                 format = checkFormat(fileExtension, true);
-            }
-        } finally {
-            if (zipFile != null) {
-                zipFile.close();
             }
         }
 
@@ -288,9 +276,7 @@ public enum MassSpecFileFormat {
     private static MassSpecFileFormat checkZippedFileContent(File file) throws IOException {
         MassSpecFileFormat format = null;
 
-        ZipFile zipFile = null;
-        try {
-            zipFile = new ZipFile(file);
+        try (ZipFile zipFile = new ZipFile(file)) {
 
             Enumeration<? extends ZipEntry> entries = zipFile.entries();
             if (entries.hasMoreElements()) {
@@ -306,16 +292,12 @@ public enum MassSpecFileFormat {
                 String content = new String(data);
                 format = detectFormat(content);
             }
-        } finally {
-            if (zipFile != null) {
-                zipFile.close();
-            }
         }
 
         return format;
     }
 
-    private static MassSpecFileFormat checkGzippedFileExtension(File file) throws IOException {
+    private static MassSpecFileFormat checkGzippedFileExtension(File file) {
         MassSpecFileFormat format;
 
         String fileName = file.getName();
@@ -335,11 +317,8 @@ public enum MassSpecFileFormat {
     private static MassSpecFileFormat checkGzippedFileContent(File file) throws IOException {
         MassSpecFileFormat format;
 
-        GZIPInputStream gzipInputStream = null;
-
-        try {
-            FileInputStream fileInputStream = new FileInputStream(file);
-            gzipInputStream = new GZIPInputStream(new BufferedInputStream(fileInputStream));
+        FileInputStream fileInputStream = new FileInputStream(file);
+        try (GZIPInputStream gzipInputStream = new GZIPInputStream(new BufferedInputStream(fileInputStream))) {
 
             // reading buffer size
             int BUFFER = 1048;
@@ -351,10 +330,6 @@ public enum MassSpecFileFormat {
             String content = new String(data);
             format = detectFormat(content);
 
-        } finally {
-            if (gzipInputStream != null) {
-                gzipInputStream.close();
-            }
         }
 
         return format;

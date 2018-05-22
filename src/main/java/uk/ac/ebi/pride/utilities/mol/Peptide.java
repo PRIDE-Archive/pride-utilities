@@ -173,8 +173,7 @@ public class Peptide {
 
         // create save point. Because PTModification is read only class, so
         // we can clone ptm by using Map.putAll method.
-        Map<Integer, PTModification> tmpPTM = new HashMap<Integer, PTModification>();
-        tmpPTM.putAll(this.ptm);
+        Map<Integer, PTModification> tmpPTM = new HashMap<Integer, PTModification>(this.ptm);
 
         Integer position;
         PTModification modification;

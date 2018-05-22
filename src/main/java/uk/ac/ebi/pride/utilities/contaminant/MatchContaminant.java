@@ -100,7 +100,7 @@ public class MatchContaminant {
          * @throws Exception problems reading from the contaminates FASTA file.
          */
         String allSequences() throws Exception {
-            StringBuilder allSequences = new StringBuilder("");
+            StringBuilder allSequences = new StringBuilder();
             String line;
             while((line = readNext()) != null){
                 allSequences.append(line).append("\n");
