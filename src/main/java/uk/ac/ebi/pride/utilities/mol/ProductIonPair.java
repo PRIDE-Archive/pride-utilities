@@ -9,5 +9,5 @@ package uk.ac.ebi.pride.utilities.mol;
  */
 
 public enum ProductIonPair {
-    A_X, B_Y, C_Z;
+    A_X, B_Y, C_Z
 }

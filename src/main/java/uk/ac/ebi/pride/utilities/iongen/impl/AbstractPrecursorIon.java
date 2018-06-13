@@ -25,7 +25,7 @@ public abstract class AbstractPrecursorIon extends DefaultPeptideIon implements 
     }
 
     private Map<Integer, PTModification> getProductIonPTM(int start, int end, Map<Integer, PTModification> precursorPTM) {
-        Map<Integer, PTModification> ptm = new HashMap<Integer, PTModification>();
+        Map<Integer, PTModification> ptm = new HashMap<>();
 
 
         Iterator<Integer> it = precursorPTM.keySet().iterator();

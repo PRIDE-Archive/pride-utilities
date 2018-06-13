@@ -54,7 +54,7 @@ public class MoleculeUtilities {
      * @return List<AminoAcid>  returns a list of qualified amino acids.
      */
     public static List<AminoAcid> searchForAminoAcid(double massRangeStart, double massRangeEnd, boolean isMonoMass) {
-        List<AminoAcid> acs = new ArrayList<AminoAcid>();
+        List<AminoAcid> acs = new ArrayList<>();
         AminoAcid[] acEntries = AminoAcid.values();
         for (AminoAcid acEntry : acEntries) {
             double acMass = isMonoMass ? acEntry.getMonoMass() : acEntry.getAvgMass();
@@ -76,12 +76,12 @@ public class MoleculeUtilities {
      */
     public static java.util.List<AminoAcidSequence> searchForPeptide(double massRangeStart, double massRangeEnd,
                                                            boolean isMonoMass, int numOfResidue) {
-        java.util.List<AminoAcidSequence> aminoAcidSequences = new ArrayList<AminoAcidSequence>();
+        java.util.List<AminoAcidSequence> aminoAcidSequences = new ArrayList<>();
         AminoAcid[] acEntries = AminoAcid.values();
 
         // create all combinations.
         for (int i = 0; i < numOfResidue; i++) {
-            java.util.List<AminoAcidSequence> tmpAminoAcidSequences = new ArrayList<AminoAcidSequence>();
+            java.util.List<AminoAcidSequence> tmpAminoAcidSequences = new ArrayList<>();
             for (AminoAcid acEntry : acEntries) {
                 if (i == 0) {
                     AminoAcidSequence aminoAcidSequence = new AminoAcidSequence(acEntry);
@@ -101,7 +101,7 @@ public class MoleculeUtilities {
         }
 
         // remove unqualified ones
-        java.util.List<AminoAcidSequence> tmpAminoAcidSequences = new ArrayList<AminoAcidSequence>();
+        java.util.List<AminoAcidSequence> tmpAminoAcidSequences = new ArrayList<>();
         for (AminoAcidSequence aminoAcidSequence : aminoAcidSequences) {
             double mass = isMonoMass ? aminoAcidSequence.getMonoMass() : aminoAcidSequence.getAvgMass();
             if (mass >= massRangeStart && mass <= massRangeEnd) {
@@ -312,7 +312,7 @@ public class MoleculeUtilities {
 
 
     public static void main(String[] args) {
-        Double delta = calculateDeltaMz("IKQIVBLWTR", 424.4242933333333, 3, new ArrayList<Double>());
+        Double delta = calculateDeltaMz("IKQIVBLWTR", 424.4242933333333, 3, new ArrayList<>());
         System.out.println(delta);
     }
 }

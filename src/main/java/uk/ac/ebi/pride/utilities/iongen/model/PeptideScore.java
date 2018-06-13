@@ -103,7 +103,7 @@ public class PeptideScore {
      * generate product ion list.
      */
     private List<ProductIon> addProductIonListByCharge(PrecursorIon precursorIon, int charge) {
-        List<ProductIon> ionList = new ArrayList<ProductIon>();
+        List<ProductIon> ionList = new ArrayList<>();
 
         switch (ionPair) {
             case B_Y:
@@ -193,7 +193,7 @@ public class PeptideScore {
      * peakDepth peaks were retained by intensity.
      */
     public List<PeakSet> getDepthPeakSetList(int peakDepth, int splitSize) {
-        List<PeakSet> peakDepthWindows = new ArrayList<PeakSet>();
+        List<PeakSet> peakDepthWindows = new ArrayList<>();
 
         PeakSet peakDepthWindow;
         List<PeakSet> windows = peakSet.splitWindow(splitSize);

@@ -30,7 +30,7 @@ public class AminoAcidSequence implements Mass {
      * @param residues  a list of amino acids
      */
     public AminoAcidSequence(AminoAcid... residues) {
-        aminoAcids = new ArrayList<AminoAcid>();
+        aminoAcids = new ArrayList<>();
         aminoAcids.addAll(Arrays.asList(residues));
     }
 
@@ -40,7 +40,7 @@ public class AminoAcidSequence implements Mass {
      * @return a list of amino acids
      */
     public List<AminoAcid> getAminoAcids() {
-        return new ArrayList<AminoAcid>(aminoAcids);
+        return new ArrayList<>(aminoAcids);
     }
 
     /**

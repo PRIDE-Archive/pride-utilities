@@ -21,7 +21,7 @@ public class ProductIonFactory {
      *
      */
     public static List<ProductIon> createDefaultProductIons(PrecursorIon precursorIon, ProductIonType type, int charge) {
-        List<ProductIon> productIons = new ArrayList<ProductIon>();
+        List<ProductIon> productIons = new ArrayList<>();
 
         ProductIon ion = null;
         //the default product ions cleavages position is [1..length-1]
@@ -38,7 +38,7 @@ public class ProductIonFactory {
     }
 
     public  static List<ImmoniumIon> createImmoniumProductIons(PrecursorIon precursorIon, int charge) {
-        List<ImmoniumIon> productIons = new ArrayList<ImmoniumIon>();
+        List<ImmoniumIon> productIons = new ArrayList<>();
 
         ImmoniumIon ion;
         //the immonium product ions cleavages position is [1..length]

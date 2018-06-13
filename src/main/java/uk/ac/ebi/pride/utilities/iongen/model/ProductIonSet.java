@@ -35,7 +35,7 @@ public class ProductIonSet extends TreeSet<ProductIon> {
             throw new IllegalArgumentException("Can not split peaks into windows which size less than 2");
         }
 
-        List<ProductIonSet> windowList = new ArrayList<ProductIonSet>();
+        List<ProductIonSet> windowList = new ArrayList<>();
 
         int reset = 0;
         ProductIon ion;

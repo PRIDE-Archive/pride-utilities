@@ -314,7 +314,13 @@ public enum CvTermReference{
     EFO_STRAIN("EFO", "EFO:0005135", "strain", "OBI:0000181"),
 
     // Developmental stage.
-    EFO_DEVELOPMENTAL_STAGE("EFO", "EFO:0000399", "developmental stage", "EFO:0001433");
+    EFO_DEVELOPMENTAL_STAGE("EFO", "EFO:0000399", "developmental stage", "EFO:0001433"),
+
+
+    /** Terms used by PRIDE Archive pipelines**/
+    PRIDE_FTP_PROTOCOL_URL("PRIDE", "PRIDE:0000469", "FTP Protocol", "PRIDE:0000006"),
+    PRIDE_ASPERA_PROTOCOL_URL("PRIDE", "PRIDE:0000468", "Aspera Protocol", "PRIDE:0000006");
+
 
 
     /** End EFO Terms **/
@@ -344,7 +350,7 @@ public enum CvTermReference{
     }
 
     public Collection<String> getChildAccessions() {
-        Collection<String> results = new ArrayList<String>();
+        Collection<String> results = new ArrayList<>();
         CvTermReference[] cvTerms = CvTermReference.values();
         for (CvTermReference cv : cvTerms) {
             if (cv.getParentAccessions().contains(accession)) {

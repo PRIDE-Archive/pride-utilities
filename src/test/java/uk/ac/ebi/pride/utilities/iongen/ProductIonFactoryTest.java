@@ -74,13 +74,13 @@ public class ProductIonFactoryTest {
         PrecursorIon precursorIon = new DefaultPrecursorIon(sequence, 3);
         Peptide peptide = precursorIon.getPeptide();
 
-        List<Double> massList1 = new ArrayList<Double>();
+        List<Double> massList1 = new ArrayList<>();
         massList1.add(Element.C.getMass());
-        List<Double> massList2 = new ArrayList<Double>();
+        List<Double> massList2 = new ArrayList<>();
         massList2.add(Element.Cl.getMass());
         PTModification m1 = new PTModification(null, null, null, massList1, null);
         PTModification m2 = new PTModification(null, null, null, massList2, null);
-        Map<Integer, PTModification> ptm = new HashMap<Integer, PTModification>();
+        Map<Integer, PTModification> ptm = new HashMap<>();
         ptm.put(1, m1);
         ptm.put(4, m2);
         peptide.addALLModification(ptm);
@@ -188,7 +188,7 @@ public class ProductIonFactoryTest {
             Peptide peptide = precursorIon.getPeptide();
             PTModification modification;
             String[] modifications = modicationString.split(", ");
-            List<Double> monoMassDeltas = new ArrayList<Double>();
+            List<Double> monoMassDeltas = new ArrayList<>();
             for (int i = 0; i < modifications.length; ) {
                 modificatedPosition = Integer.parseInt(modifications[i]);
                 massDifference = Double.parseDouble(modifications[i + 1]);
@@ -220,13 +220,13 @@ public class ProductIonFactoryTest {
 
         // test modification peptide generate immonium ions.
         //i[n] = a[n] - b[n-1]    n in [1..length-2]
-        List<Double> massList1 = new ArrayList<Double>();
+        List<Double> massList1 = new ArrayList<>();
         massList1.add(Element.C.getMass());
-        List<Double> massList2 = new ArrayList<Double>();
+        List<Double> massList2 = new ArrayList<>();
         massList2.add(Element.Cl.getMass());
         PTModification m1 = new PTModification(null, null, null, massList1, null);
         PTModification m2 = new PTModification(null, null, null, massList2, null);
-        Map<Integer, PTModification> ptm = new HashMap<Integer, PTModification>();
+        Map<Integer, PTModification> ptm = new HashMap<>();
         ptm.put(1, m1);
         ptm.put(4, m2);
         precursorIon.getPeptide().addALLModification(ptm);

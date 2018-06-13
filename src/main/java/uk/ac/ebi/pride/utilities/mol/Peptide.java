@@ -15,10 +15,10 @@ public class Peptide {
     private Group c_terminal;
 
     // the ptm position from [0, sequence.length-1]
-    private Map<Integer, PTModification> ptm = new HashMap<Integer, PTModification>();
+    private Map<Integer, PTModification> ptm = new HashMap<>();
 
     private List<AminoAcid> generateAminoAcids(String sequence) {
-        List<AminoAcid> acidList = new ArrayList<AminoAcid>();
+        List<AminoAcid> acidList = new ArrayList<>();
 
         char[] cList = sequence.toCharArray();
         int position = 0;
@@ -173,7 +173,7 @@ public class Peptide {
 
         // create save point. Because PTModification is read only class, so
         // we can clone ptm by using Map.putAll method.
-        Map<Integer, PTModification> tmpPTM = new HashMap<Integer, PTModification>(this.ptm);
+        Map<Integer, PTModification> tmpPTM = new HashMap<>(this.ptm);
 
         Integer position;
         PTModification modification;

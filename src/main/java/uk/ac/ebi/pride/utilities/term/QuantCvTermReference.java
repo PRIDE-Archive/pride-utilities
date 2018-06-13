@@ -144,7 +144,7 @@ public enum QuantCvTermReference {
     }
 
     public Collection<String> getChildAccessions() {
-        Collection<String> results = new ArrayList<String>();
+        Collection<String> results = new ArrayList<>();
         QuantCvTermReference[] cvTerms = QuantCvTermReference.values();
         for (QuantCvTermReference cv : cvTerms) {
             if (cv.getParentAccessions().contains(accession)) {

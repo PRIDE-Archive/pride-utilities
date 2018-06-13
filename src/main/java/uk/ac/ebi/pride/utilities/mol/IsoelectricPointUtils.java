@@ -37,9 +37,9 @@ public class IsoelectricPointUtils {
     }
 
     public static class BjellpI {
-        private Map<String,Double> Cterm_pI_expasy = new HashMap<String,Double>();
-        private Map<String,Double> Nterm_pI_expasy = new HashMap<String,Double>();
-        private Map<String, Double> sideGroup_pI_expasy = new HashMap<String,Double>();
+        private Map<String,Double> Cterm_pI_expasy = new HashMap<>();
+        private Map<String,Double> Nterm_pI_expasy = new HashMap<>();
+        private Map<String, Double> sideGroup_pI_expasy = new HashMap<>();
         private double FoRmU = 0.0D;
         private String seq = null; // sequenceAA
 

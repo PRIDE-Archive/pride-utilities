@@ -109,7 +109,7 @@ public class PeptideScoreTest {
 
         PeakSet peakset = PeakSet.getInstance(mzArray, intArray);
         Peptide peptide = new Peptide("LTTEATQTPVSNK");
-        List<Double> monoMass = new ArrayList<Double>();
+        List<Double> monoMass = new ArrayList<>();
         monoMass.add(79.96633);
         PTModification modification = new PTModification("x", null, null, monoMass, null);
         peptide.addModification(8, modification);

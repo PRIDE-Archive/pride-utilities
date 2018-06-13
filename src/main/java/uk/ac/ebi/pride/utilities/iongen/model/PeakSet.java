@@ -53,7 +53,7 @@ public class PeakSet extends TreeSet<Peak> {
             throw new IllegalArgumentException("Can not split peaks into windows which size less than 2");
         }
 
-        List<PeakSet> windowList = new ArrayList<PeakSet>();
+        List<PeakSet> windowList = new ArrayList<>();
 
         int reset = 0;
         Peak peak;
@@ -206,7 +206,7 @@ public class PeakSet extends TreeSet<Peak> {
 
         PeakSet peakList = new PeakSet();
 
-        TreeSet<Peak> intentOrderPeakSet = new TreeSet<Peak>(new IntensityComparator());
+        TreeSet<Peak> intentOrderPeakSet = new TreeSet<>(new IntensityComparator());
         intentOrderPeakSet.addAll(this);
 
         Peak peak;

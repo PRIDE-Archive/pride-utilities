@@ -12,7 +12,7 @@ public class TestUtils {
 
     public static Map<String, List<String>> generateTestset(String fileName) {
         BufferedReader reader = null;
-        Map<String, List<String>> testSet = new HashMap<String, List<String>>();
+        Map<String, List<String>> testSet = new HashMap<>();
 
         String line;
         String input = null;
@@ -33,7 +33,7 @@ public class TestUtils {
                 if (line.startsWith(INPUT)) {
                     // new test case
                     input = reader.readLine();
-                    outputs = new ArrayList<String>();
+                    outputs = new ArrayList<>();
                 } else if (line.startsWith(OUTPUT)) {
                     String END = "END;";
                     while (! (line = reader.readLine()).startsWith(END)) {
