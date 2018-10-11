@@ -17,7 +17,7 @@ public enum CvTermReference{
     MS_ANALYSIS_SOFTWARE("MS", "MS:1001456", "analysis software", "MS:1000531"),
     MS_SOFTWARE("MS","MS:1000531", "Software", "MS:0000000"),
     MS_DATABASE("MS", "MS:1001013", "database name", "MS:1001011"),
-    MS_PUBLICATION_DOI("MS", "MS:1001922", "doi", "MS:1000878"),
+    MS_PUBLICATION_DOI("MS", "MS:1001922", "Digital Object Identifier (DOI)", "MS:1000878"),
     MS_IONIZATION_MODE("MS", "MS:1000465", "scan polarity", "MS:1000441"),
     MS_GENERAL_SPECTRUM_REPRESENTATION("MS", "MS:1000525", "spectrum representation", "MS:1000442"),
 
@@ -294,6 +294,8 @@ public enum CvTermReference{
 
     // Organism part Tissue or
     EFO_ORGANISM_PART("EFO", "EFO:0000635", "organism part", "EFO:0001434"),
+    EFO_CELL_TYPE("EFO", "EFO:0000324", "cell type", "EFO:0001434"),
+
 
     // Organism (e.g Human ,etc )
     EFO_ORGANISM("EFO", "EFO:0000634", "organism", "EFO:0001434"),
@@ -316,10 +318,24 @@ public enum CvTermReference{
     // Developmental stage.
     EFO_DEVELOPMENTAL_STAGE("EFO", "EFO:0000399", "developmental stage", "EFO:0001433"),
 
+    //When not annotation are present
+    PRIDE_NO_MODIFICATION("PRIDE", "PRIDE:0000398", "No PTMs are included in the dataset", ""),
+    PRIDE_NO_DISEASES("DOID", "DOID:0000018", "disease free", ""),
+    PRIDE_NO_ORGANISM_PART("PRIDE","PRIDE:0000442","Tissue not applicable to dataset",""),
+
 
     /** Terms used by PRIDE Archive pipelines**/
     PRIDE_FTP_PROTOCOL_URL("PRIDE", "PRIDE:0000469", "FTP Protocol", "PRIDE:0000006"),
-    PRIDE_ASPERA_PROTOCOL_URL("PRIDE", "PRIDE:0000468", "Aspera Protocol", "PRIDE:0000006");
+    PRIDE_ASPERA_PROTOCOL_URL("PRIDE", "PRIDE:0000468", "Aspera Protocol", "PRIDE:0000006"),
+
+    /** PRIDE CURRENT Terms **/
+
+
+    MS_PUBLICATION_PUBMED_IDENTIFIER("MS", "MS:1000879", "PubMed identifier", null),
+    MS_PUBLICATION_REFERENCE("MS", "MS:1002866", "Reference", null),
+    MS_KEYWORD_SUBMITTER("MS", "MS:1001925", "submitter keyword", ""),
+    MS_KEYWORD_CURATOR("MS", "MS:1001926", "curator keyword", ""),
+    MS_DATASET_LINK_HTTP("MS", "MS:1001930", "PRIDE project URI", "");
 
 
 

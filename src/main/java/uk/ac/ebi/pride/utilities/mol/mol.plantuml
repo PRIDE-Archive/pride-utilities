@@ -1,0 +1,326 @@
+@startuml
+
+title __MOL's Class Diagram__\n
+
+  package uk.ac.ebi.pride.utilities.mol {
+    enum AminoAcid {
+      A
+      B
+      R
+      N
+      D
+      C
+      E
+      Q
+      G
+      H
+      I
+      L
+      J
+      K
+      M
+      F
+      P
+      O
+      S
+      T
+      U
+      V
+      W
+      X
+      Y
+      Z
+      name
+      oneLetterCode
+      threeLetterCode
+      chemicalFormula
+      monoMass
+      avgMass
+    }
+  }
+  
+
+  package uk.ac.ebi.pride.utilities.mol {
+    class AminoAcidSequence {
+        - aminoAcids : List<AminoAcid>
+        + AminoAcidSequence()
+        + AminoAcidSequence()
+        + getAminoAcids()
+        + getAminoAcid()
+        + getNumberOfAminoAcids()
+        + addAminoAcid()
+        + addAminoAcids()
+        + removeAll()
+        + remove()
+        + getAvgMass()
+        + getMonoMass()
+        + getLength()
+        + getThreeLetterCodeString()
+        + getOneLetterCodeString()
+        + equals()
+        + hashCode()
+        + toString()
+    }
+  }
+  
+
+  package uk.ac.ebi.pride.utilities.mol {
+    enum Atom {
+      O_16
+      C_12
+      name
+      formula
+      charge
+      monoMass
+      avgMass
+    }
+  }
+  
+
+  package uk.ac.ebi.pride.utilities.mol {
+    enum Element {
+      H
+      Li
+      C
+      N
+      O
+      F
+      Na
+      Mg
+      P
+      S
+      Cl
+      K
+      Ca
+      Br
+      I
+      Cs
+      name
+      mass
+    }
+  }
+  
+
+  package uk.ac.ebi.pride.utilities.mol {
+    class GraviUtilities {
+        {static} - graviIndexes : Map<String, Double>
+        {static} + calculate()
+    }
+  }
+  
+
+  package uk.ac.ebi.pride.utilities.mol {
+    class Group {
+        - mass : double
+        - elements : List<Element>
+        {static} + H : Group
+        {static} + OH : Group
+        {static} + CO : Group
+        {static} + NH : Group
+        {static} + H2O : Group
+        {static} + NH3 : Group
+        + Group()
+        + getMass()
+        + getElements()
+        + getName()
+        + toString()
+        + equals()
+        + hashCode()
+    }
+  }
+  
+
+  package uk.ac.ebi.pride.utilities.mol {
+    class IsoelectricPointUtils {
+        {static} - bjellpI : BjellpI
+        {static} + calculate()
+        {static} + replaceSpecialAA()
+    }
+  }
+  
+
+  package uk.ac.ebi.pride.utilities.mol {
+    class BjellpI {
+        - Cterm_pI_expasy : Map<String, Double>
+        - Nterm_pI_expasy : Map<String, Double>
+        - sideGroup_pI_expasy : Map<String, Double>
+        - FoRmU : double
+        - seq : String
+        + BjellpI()
+        + calculate()
+        - getpI()
+        - fillMaps()
+    }
+  }
+  
+
+  package uk.ac.ebi.pride.utilities.mol {
+    interface Mass {
+        {abstract} + getMonoMass()
+        {abstract} + getAvgMass()
+    }
+  }
+  
+
+  package uk.ac.ebi.pride.utilities.mol {
+    class MoleculeUtilities {
+        {static} + getAminoacid()
+        {static} + isAminoAcidSequence()
+        {static} + searchForAminoAcid()
+        {static} + searchForPeptide()
+        {static} + calculateTheoreticalMass()
+        {static} + calculateDeltaMz()
+        {static} + calculateDeltaMz()
+        {static} + calculatePeptideMonoMass()
+        {static} + calculatePeptideAvgMass()
+        {static} - calculatePeptideMass()
+        {static} + calculateMonoMass()
+        {static} + calculateAvgMass()
+        {static} + calcMissedCleavages()
+        {static} + main()
+    }
+  }
+  
+
+  package uk.ac.ebi.pride.utilities.mol {
+    class NeutralLoss {
+        {static} + WATER_LOSS : NeutralLoss
+        {static} + AMMONIA_LOSS : NeutralLoss
+        - name : String
+        - sign : String
+        - avgMass : double
+        - monoMass : double
+        + NeutralLoss()
+        + getName()
+        + getSign()
+        + getAvgMass()
+        + getMonoMass()
+        + equals()
+        + hashCode()
+        + clone()
+        + toString()
+    }
+  }
+  
+
+  package uk.ac.ebi.pride.utilities.mol {
+    enum NuclearParticle {
+      PROTON
+      name
+      formula
+      charge
+      monoMass
+      avgMass
+    }
+  }
+  
+
+  package uk.ac.ebi.pride.utilities.mol {
+    class PTModification {
+        - name : String
+        - type : String
+        - label : String
+        - monoMassDeltas : List<Double>
+        - avgMassDeltas : List<Double>
+        + PTModification()
+        + getName()
+        + getType()
+        + getLabel()
+        + getMonoMassDeltas()
+        + getAvgMassDeltas()
+        + equals()
+        + hashCode()
+    }
+  }
+  
+
+  package uk.ac.ebi.pride.utilities.mol {
+    class Peptide {
+        - acidList : List<AminoAcid>
+        - ptm : Map<Integer, PTModification>
+        - generateAminoAcids()
+        + Peptide()
+        + Peptide()
+        + Peptide()
+        + Peptide()
+        + Peptide()
+        + Peptide()
+        + Peptide()
+        + Peptide()
+        + addModification()
+        + addALLModification()
+        + removeModification()
+        + removeModification()
+        + clearModifications()
+        + getSequence()
+        + getAminoAcids()
+        + getNTerminalGroup()
+        + getCTerminalGroup()
+        + getLength()
+        + getPTM()
+        + toString()
+        + equals()
+        + hashCode()
+    }
+  }
+  
+
+  package uk.ac.ebi.pride.utilities.mol {
+    enum ProductIonPair {
+      A_X
+      B_Y
+      C_Z
+    }
+  }
+  
+
+  package uk.ac.ebi.pride.utilities.mol {
+    enum ProductIonType {
+      A
+      A_NH3
+      A_H2O
+      B
+      B_NH3
+      B_H2O
+      C
+      C_NH3
+      C_H2O
+      X
+      X_NH3
+      X_H2O
+      Y
+      Y_NH3
+      Y_H2O
+      Z
+      Z_NH3
+      Z_H2O
+      name
+      group
+      loss
+      pair
+    }
+  }
+  
+
+  AminoAcid -up-|> Mass
+  AminoAcidSequence -up-|> Mass
+  Atom -up-|> Mass
+  IsoelectricPointUtils +-down- BjellpI
+  NeutralLoss -up-|> Mass
+  NeutralLoss -up-|> Cloneable
+  NuclearParticle -up-|> Mass
+  Peptide o-- Group : n_terminal
+  Peptide o-- Group : c_terminal
+  ProductIonType o-- FragmentIonType : group
+  ProductIonType o-- NeutralLoss : loss
+  ProductIonType o-- ProductIonPair : pair
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
