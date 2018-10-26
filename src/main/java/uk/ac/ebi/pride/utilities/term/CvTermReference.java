@@ -295,28 +295,22 @@ public enum CvTermReference{
     // Organism part Tissue or
     EFO_ORGANISM_PART("EFO", "EFO:0000635", "organism part", "EFO:0001434"),
     EFO_CELL_TYPE("EFO", "EFO:0000324", "cell type", "EFO:0001434"),
-
-
+    EFO_CELL_LINE("EFO","EFO:0002477", "cultured cell", "EFO:0001434"),
     // Organism (e.g Human ,etc )
     EFO_ORGANISM("EFO", "EFO:0000634", "organism", "EFO:0001434"),
-
     // Disease Type
     EFO_DISEASE("EFO", "EFO:0000408", "disease", "EFO:0001438"),
-
     // Sex of the individuals
     EFO_SEX("EFO", "PATO:0000047", "sex", "EFO:0001443"),
-
     //AGE of the individuals
     EFO_AGE("EFO", "EFO:0000246", "age", "EFO:0000719"),
-
     // Ethic Group
     ECO_ETHNIC_GROUP("EFO", "EFO:0001799", "ethnic group", "OBI:0000181"),
-
     //Strain
     EFO_STRAIN("EFO", "EFO:0005135", "strain", "OBI:0000181"),
-
     // Developmental stage.
     EFO_DEVELOPMENTAL_STAGE("EFO", "EFO:0000399", "developmental stage", "EFO:0001433"),
+    PRIDE_INDIVIDUAL("PRIDE", "PRIDE:0000505", "Individual Accession", "PRIDE:0000017"),
 
     //When not annotation are present
     PRIDE_NO_MODIFICATION("PRIDE", "PRIDE:0000398", "No PTMs are included in the dataset", ""),
