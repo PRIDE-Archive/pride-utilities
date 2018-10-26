@@ -16,29 +16,29 @@ import uk.ac.ebi.pride.utilities.term.CvTermReference;
 public enum SampleAttributes {
 
     ORGANISM(CvTermReference.EFO_ORGANISM,
-            new SampleClass[]{SampleClass.HUMAN, SampleClass.CELLLINES, SampleClass.VERTEBRATES, SampleClass.NON_VERTEBRATES, SampleClass.PLANTS} , null),
+            new SampleClass[]{SampleClass.HUMAN, SampleClass.CELL_LINES, SampleClass.VERTEBRATES, SampleClass.NON_VERTEBRATES, SampleClass.PLANTS} , null),
 
     ORGANISM_PART(CvTermReference.EFO_ORGANISM_PART,
-            new SampleClass[]{SampleClass.HUMAN, SampleClass.VERTEBRATES, SampleClass.NON_VERTEBRATES, SampleClass.PLANTS, SampleClass.CELLLINES}, null),
+            new SampleClass[]{SampleClass.HUMAN, SampleClass.VERTEBRATES, SampleClass.NON_VERTEBRATES, SampleClass.PLANTS, SampleClass.CELL_LINES}, null),
 
     DISEASE(CvTermReference.EFO_DISEASE,
-            new SampleClass[]{SampleClass.HUMAN, SampleClass.VERTEBRATES, SampleClass.NON_VERTEBRATES, SampleClass.PLANTS, SampleClass.CELLLINES}, null),
+            new SampleClass[]{SampleClass.HUMAN, SampleClass.VERTEBRATES, SampleClass.NON_VERTEBRATES, SampleClass.PLANTS, SampleClass.CELL_LINES}, null),
 
     CELL_TYPE(CvTermReference.EFO_CELL_TYPE,
-            new SampleClass[]{SampleClass.HUMAN, SampleClass.VERTEBRATES, SampleClass.NON_VERTEBRATES, SampleClass.PLANTS, SampleClass.CELLLINES}, null),
+            new SampleClass[]{SampleClass.HUMAN, SampleClass.VERTEBRATES, SampleClass.NON_VERTEBRATES, SampleClass.PLANTS, SampleClass.CELL_LINES}, null),
 
     DEVELOPMENT_STAGE(CvTermReference.EFO_DEVELOPMENTAL_STAGE,
             new SampleClass[]{SampleClass.HUMAN}, new SampleClass[]{SampleClass.VERTEBRATES}),
 
     STRAIN(CvTermReference.EFO_STRAIN
-            , null, new SampleClass[]{SampleClass.HUMAN, SampleClass.VERTEBRATES, SampleClass.NON_VERTEBRATES, SampleClass.PLANTS, SampleClass.CELLLINES}),
+            , null, new SampleClass[]{SampleClass.HUMAN, SampleClass.VERTEBRATES, SampleClass.NON_VERTEBRATES, SampleClass.PLANTS, SampleClass.CELL_LINES}),
 
     SEX(CvTermReference.EFO_SEX,  new SampleClass[]{SampleClass.HUMAN}, new SampleClass[]{SampleClass.VERTEBRATES}),
     INDIVIDUAL(CvTermReference.PRIDE_INDIVIDUAL,
-            new SampleClass[]{SampleClass.HUMAN, SampleClass.CELLLINES, SampleClass.VERTEBRATES, SampleClass.NON_VERTEBRATES, SampleClass.PLANTS} , null),
+            new SampleClass[]{SampleClass.HUMAN, SampleClass.CELL_LINES, SampleClass.VERTEBRATES, SampleClass.NON_VERTEBRATES, SampleClass.PLANTS} , null),
 
     CELL_LINE_CODE(CvTermReference.EFO_CELL_LINE,
-            new SampleClass[]{SampleClass.CELLLINES}, null);
+            new SampleClass[]{SampleClass.CELL_LINES}, null);
 
     private final CvTermReference efoTerm;
     private final SampleClass[] requiredSampleClasses;

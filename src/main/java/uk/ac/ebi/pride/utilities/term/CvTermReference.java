@@ -297,7 +297,7 @@ public enum CvTermReference{
     EFO_CELL_TYPE("EFO", "EFO:0000324", "cell type", "EFO:0001434"),
     EFO_CELL_LINE("EFO","EFO:0002477", "cultured cell", "EFO:0001434"),
     // Organism (e.g Human ,etc )
-    EFO_ORGANISM("EFO", "EFO:0000634", "organism", "EFO:0001434"),
+    EFO_ORGANISM("EFO", "OBI:0100026", "organism", "EFO:0001434"),
     // Disease Type
     EFO_DISEASE("EFO", "EFO:0000408", "disease", "EFO:0001438"),
     // Sex of the individuals

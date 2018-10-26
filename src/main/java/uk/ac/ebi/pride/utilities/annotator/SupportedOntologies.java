@@ -11,6 +11,18 @@ package uk.ac.ebi.pride.utilities.annotator;
  *
  * @author ypriverol on 26/10/2018.
  */
-public enum TypeAttribute {
-    REQUIRED, OPTIONAL, ADDITIONAL
+public enum SupportedOntologies {
+
+    EFO("efo"),
+    PRIDE("pride");
+
+    private String ontologyId;
+
+    SupportedOntologies(String ontologyId) {
+        this.ontologyId = ontologyId;
+    }
+
+    public String getOntologyId() {
+        return ontologyId;
+    }
 }

@@ -13,6 +13,6 @@ package uk.ac.ebi.pride.utilities.annotator;
  */
 public enum SampleClass {
 
-    HUMAN, VERTEBRATES, NON_VERTEBRATES, PLANTS, CELLLINES
+    HUMAN, VERTEBRATES, NON_VERTEBRATES, PLANTS, CELL_LINES
 
 }
