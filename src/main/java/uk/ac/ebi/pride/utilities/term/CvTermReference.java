@@ -295,7 +295,7 @@ public enum CvTermReference{
     // Organism part Tissue or
     EFO_ORGANISM_PART("EFO", "EFO:0000635", "organism part", "EFO:0001434"),
     EFO_CELL_TYPE("EFO", "EFO:0000324", "cell type", "EFO:0001434"),
-    EFO_CELL_LINE("EFO","EFO:0002477", "cultured cell", "EFO:0001434"),
+    EFO_CELL_LINE("EFO","CL:0000010", "cultured cell", "EFO:0001434"),
     // Organism (e.g Human ,etc )
     EFO_ORGANISM("EFO", "OBI:0100026", "organism", "EFO:0001434"),
     // Disease Type
@@ -305,18 +305,26 @@ public enum CvTermReference{
     //AGE of the individuals
     EFO_AGE("EFO", "EFO:0000246", "age", "EFO:0000719"),
     // Ethic Group
-    ECO_ETHNIC_GROUP("EFO", "EFO:0001799", "ethnic group", "OBI:0000181"),
+    EFO_ANCESTRY_GROUP("EFO", "HANCESTRO:0004", "ancestry group", "OBI:0000181"),
     //Strain
     EFO_STRAIN("EFO", "EFO:0005135", "strain", "OBI:0000181"),
     // Developmental stage.
     EFO_DEVELOPMENTAL_STAGE("EFO", "EFO:0000399", "developmental stage", "EFO:0001433"),
     PRIDE_INDIVIDUAL("PRIDE", "PRIDE:0000505", "Individual Accession", "PRIDE:0000017"),
 
+    MS_LABEL_FREE_SAMPLE("MS", "MS:1002038", "label free sample", "MS:1000548"),
+
     //When not annotation are present
     PRIDE_NO_MODIFICATION("PRIDE", "PRIDE:0000398", "No PTMs are included in the dataset", ""),
     PRIDE_NO_DISEASES("DOID", "DOID:0000018", "disease free", ""),
     PRIDE_NO_ORGANISM_PART("PRIDE","PRIDE:0000442","Tissue not applicable to dataset",""),
 
+    /** Default values **/
+    EFO_DEFAULT_ORGANISM_PART("EFO", "UBERON:0000468", "whole organism", "EFO:0000635"),
+    PRIDE_DEFAULT_DISEASE("PRIDE", "PRIDE:0000018", "disease free", "PRIDE:0000017"),
+    MS_LABELING_MSRUN("MS", "MS:1002602", "Sample Label", "MS:1000548"),
+    MS_TECHNICAL_REPLICATE("MS", "MS:1001808", "technical replicate", "MS:1001807"),
+    MS_FRACTION_IDENTIFIER("MS", "MS:1000858", "fraction identifier", "MS:1000858"),
 
     /** Terms used by PRIDE Archive pipelines**/
     PRIDE_FTP_PROTOCOL_URL("PRIDE", "PRIDE:0000469", "FTP Protocol", "PRIDE:0000006"),
