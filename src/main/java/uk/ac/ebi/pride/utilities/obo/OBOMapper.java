@@ -5,6 +5,7 @@ import org.obolibrary.oboformat.model.Frame;
 import org.obolibrary.oboformat.model.OBODoc;
 import org.obolibrary.oboformat.parser.OBOFormatParser;
 
+import javax.annotation.Resource;
 import java.io.*;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -39,6 +40,19 @@ public class OBOMapper {
         }
     }
 
+    public OBOMapper(InputStream in) {
+        this.source = source;
+        OBOFormatParser oboReader = new OBOFormatParser();
+
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in))) {
+            oboDoc = oboReader.parse(bufferedReader);
+            oboDoc.getInstanceFrames();
+            initMapper();
+        } catch (IOException e) {
+            LOGGER.error("The File can't be open --" + source.getAbsolutePath() + e.getMessage());
+        }
+    }
+
     private void initMapper() {
         termMap = new HashMap<>();
 
@@ -57,8 +71,15 @@ public class OBOMapper {
 
 
     public static OBOMapper getPSIMSInstance() throws URISyntaxException {
-        URL url = OBOMapper.class.getClassLoader().getResource("obo/psi-ms.obo");
-        OBOMapper mapper = new OBOMapper(new File(url.toURI()));
+
+        /*URL url = OBOMapper.class.getClassLoader().getResource("obo/psi-ms.obo");
+        File file = new File(url.toURI());*/
+
+
+        OBOMapper mapper = new OBOMapper(OBOMapper.class.getClassLoader().getResourceAsStream("obo/psi-ms.obo"));
+
+
+
         return mapper;
     }
 
