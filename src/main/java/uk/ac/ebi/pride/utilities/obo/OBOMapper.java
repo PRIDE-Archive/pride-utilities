@@ -23,14 +23,14 @@ public class OBOMapper {
     private static final Logger LOGGER = Logger.getLogger(OBOMapper.class);
     private OBODoc oboDoc = null;
 
-    File source;
+    InputStream source;
     private HashMap<String, OboCvTerm> termMap;
 
     public OBOMapper(File source) {
-        this.source = source;
         OBOFormatParser oboReader = new OBOFormatParser();
-
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(source)))) {
+        try{
+            this.source = new FileInputStream(source);
+            BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(this.source));
             oboDoc = oboReader.parse(bufferedReader);
             oboDoc.getInstanceFrames();
             initMapper();
@@ -38,6 +38,21 @@ public class OBOMapper {
             LOGGER.error("The File can't be open --" + source.getAbsolutePath() + e.getMessage());
         }
     }
+
+    public OBOMapper(InputStream source) {
+        this.source = source;
+        OBOFormatParser oboReader = new OBOFormatParser();
+
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(source))) {
+            oboDoc = oboReader.parse(bufferedReader);
+            oboDoc.getInstanceFrames();
+            initMapper();
+        } catch (IOException e) {
+            LOGGER.error("The File can't be open --" + source.toString() + e.getMessage());
+        }
+    }
+
+
 
     private void initMapper() {
         termMap = new HashMap<>();
@@ -55,10 +70,9 @@ public class OBOMapper {
         }
     }
 
-
     public static OBOMapper getPSIMSInstance() throws URISyntaxException {
-        URL url = OBOMapper.class.getClassLoader().getResource("obo/psi-ms.obo");
-        OBOMapper mapper = new OBOMapper(new File(url.toURI()));
+        InputStream url = OBOMapper.class.getClassLoader().getResourceAsStream("obo/psi-ms.obo");
+        OBOMapper mapper = new OBOMapper(url);
         return mapper;
     }
 
