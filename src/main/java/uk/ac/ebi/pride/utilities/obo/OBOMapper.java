@@ -5,6 +5,7 @@ import org.obolibrary.oboformat.model.Frame;
 import org.obolibrary.oboformat.model.OBODoc;
 import org.obolibrary.oboformat.parser.OBOFormatParser;
 
+import javax.annotation.Resource;
 import java.io.*;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -52,8 +53,6 @@ public class OBOMapper {
         }
     }
 
-
-
     private void initMapper() {
         termMap = new HashMap<>();
 
@@ -71,8 +70,7 @@ public class OBOMapper {
     }
 
     public static OBOMapper getPSIMSInstance() throws URISyntaxException {
-        InputStream url = OBOMapper.class.getClassLoader().getResourceAsStream("obo/psi-ms.obo");
-        OBOMapper mapper = new OBOMapper(url);
+        OBOMapper mapper = new OBOMapper(OBOMapper.class.getClassLoader().getResourceAsStream("obo/psi-ms.obo"));
         return mapper;
     }
 
