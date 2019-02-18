@@ -330,6 +330,10 @@ public enum CvTermReference{
     PRIDE_FTP_PROTOCOL_URL("PRIDE", "PRIDE:0000469", "FTP Protocol", "PRIDE:0000006"),
     PRIDE_ASPERA_PROTOCOL_URL("PRIDE", "PRIDE:0000468", "Aspera Protocol", "PRIDE:0000006"),
 
+
+    /** Unimod Root Node **/
+    UNIMOD_ROOT_NODE("UNIMOD", "UNIMOD:0", "unimod root node", ""),
+
     /** PRIDE CURRENT Terms **/
 
 
