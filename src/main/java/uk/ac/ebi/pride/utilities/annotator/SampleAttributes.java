@@ -40,8 +40,12 @@ public enum SampleAttributes {
     INDIVIDUAL(CvTermReference.PRIDE_INDIVIDUAL,
             new SampleClass[]{SampleClass.HUMAN, SampleClass.CELL_LINES, SampleClass.VERTEBRATES, SampleClass.NON_VERTEBRATES, SampleClass.PLANTS} , null, null),
 
-    CELL_LINE_CODE(CvTermReference.EFO_CELL_LINE,
-            new SampleClass[]{SampleClass.CELL_LINES}, null, null);
+    CELL_LINE_CODE(CvTermReference.EFO_CELL_LINE, new SampleClass[]{SampleClass.CELL_LINES}, null, null),
+
+    FIXED_MODIFICATION(CvTermReference.PRIDE_FIXED_MODIFICATION, null, new SampleClass[]{SampleClass.CELL_LINES, SampleClass.HUMAN, SampleClass.NON_VERTEBRATES, SampleClass.PLANTS, SampleClass.VERTEBRATES}, CvTermReference.MS_DEFAULT_FIXED_MODIFICATION),
+
+    VARIABLE_MODIFICATION(CvTermReference.PRIDE_VARIABLE_MODIFICATION, null, new SampleClass[]{SampleClass.CELL_LINES, SampleClass.HUMAN, SampleClass.NON_VERTEBRATES, SampleClass.PLANTS, SampleClass.VERTEBRATES}, CvTermReference.MS_DEFAULT_VARIABLE_MODIFICATION);
+
 
     private final CvTermReference efoTerm;
     private final SampleClass[] requiredSampleClasses;

@@ -330,6 +330,10 @@ public enum CvTermReference{
     PRIDE_FTP_PROTOCOL_URL("PRIDE", "PRIDE:0000469", "FTP Protocol", "PRIDE:0000006"),
     PRIDE_ASPERA_PROTOCOL_URL("PRIDE", "PRIDE:0000468", "Aspera Protocol", "PRIDE:0000006"),
 
+    PRIDE_VARIABLE_MODIFICATION("PRIDE", "PRIDE:0000283", "Variable Modification", "PRIDE:0000002"),
+    PRIDE_FIXED_MODIFICATION("PRIDE", "PRIDE:0000282", "Fixed Modification", "PRIDE:0000002"),
+    MS_DEFAULT_VARIABLE_MODIFICATION("MS", "MS:1002454", "No variable modifications searched", "MS:1002094"),
+    MS_DEFAULT_FIXED_MODIFICATION("MS", "MS:1002453", "No fixed modifications searched","MS:1002094"),
 
     /** Unimod Root Node **/
     UNIMOD_ROOT_NODE("UNIMOD", "UNIMOD:0", "unimod root node", ""),
