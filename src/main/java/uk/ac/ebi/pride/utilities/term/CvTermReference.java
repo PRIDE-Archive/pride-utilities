@@ -335,6 +335,11 @@ public enum CvTermReference{
     MS_DEFAULT_VARIABLE_MODIFICATION("MS", "MS:1002454", "No variable modifications searched", "MS:1002094"),
     MS_DEFAULT_FIXED_MODIFICATION("MS", "MS:1002453", "No fixed modifications searched","MS:1002094"),
 
+    PRIDE_NUMBER_ID_PROTEINS("PRIDE", "PRIDE:0000506", "Number identified proteins", "PRIDE:0000485"),
+    PRIDE_NUMBER_ID_PEPTIDES("PRIDE", "PRIDE:0000507", "Number of identified peptides", "PRIDE:0000485"),
+    PRIDE_NUMBER_MODIFIED_PEPTIDES("PRIDE", "PRIDE:0000508", "Number of modified peptides", "PRIDE:0000485"),
+    PRIDE_NUMBER_ID_PSMS("PRIDE","PRIDE:0000509","Number of PSMs","PRIDE:0000485"),
+
     /** Unimod Root Node **/
     UNIMOD_ROOT_NODE("UNIMOD", "UNIMOD:0", "unimod root node", ""),
 
