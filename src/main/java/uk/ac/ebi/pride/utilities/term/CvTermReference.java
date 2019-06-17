@@ -219,7 +219,7 @@ public enum CvTermReference{
 
     MS_MSGF_RAWSCORE("MS", "MS:1002049", "MS-GF raw score", "MS:1001143"),
     MS_MSGF_DENOVOSCORE("MS", "MS:1002050", "MS-GF de novo score", "MS:1001143"),
-    MS_MSGF_SPECEVALUE("MS", "MS:1002052", "MS-GF spectral E-value", "MS:1001143"),
+    MS_MSGF_SPECEVALUE("MS", "MS:1002052", "MS-GF molecules E-value", "MS:1001143"),
     MS_MSGF_EVALUE("MS", "MS:1002053", "MS-GF E-value", "MS:1001143"),
     MS_MSGF_QVALUE("MS", "MS:1002054", "MS-GF Q-value", "MS:1001143"),
     MS_MSGF_PEPQVALUE("MS", "MS:1002055", "MS-GF peptide-level Q-value", "MS:1001143"),
@@ -350,7 +350,12 @@ public enum CvTermReference{
     MS_PUBLICATION_REFERENCE("MS", "MS:1002866", "Reference", null),
     MS_KEYWORD_SUBMITTER("MS", "MS:1001925", "submitter keyword", ""),
     MS_KEYWORD_CURATOR("MS", "MS:1001926", "curator keyword", ""),
-    MS_DATASET_LINK_HTTP("MS", "MS:1001930", "PRIDE project URI", "");
+    MS_DATASET_LINK_HTTP("MS", "MS:1001930", "PRIDE project URI", ""),
+
+
+    // PIA Terms
+    MS_PIA_PROTEIN_SCORE("MS", "MS:1002394", "PIA:protein score", "MS:1002363"),
+    MS_PIA_PROTEIN_GROUP_QVALUE("MS","MS:1002373", "protein group-level q-value", "MS:1002348");
 
 
 
