@@ -355,7 +355,9 @@ public enum CvTermReference{
 
     // PIA Terms
     MS_PIA_PROTEIN_SCORE("MS", "MS:1002394", "PIA:protein score", "MS:1002363"),
-    MS_PIA_PROTEIN_GROUP_QVALUE("MS","MS:1002373", "protein group-level q-value", "MS:1002348");
+    MS_PIA_PROTEIN_GROUP_QVALUE("MS","MS:1002373", "protein group-level q-value", "MS:1002348"),
+    MS_PIA_PEPTIDE_QVALUE("MS", "MS:1001868", "distinct peptide-level q-value", "MS:1002484"),
+    MS_PIA_PEPTIDE_FDR("MS", "MS:1002360", "distinct peptide-level FDRScore", "MS:1002484");
 
 
 
