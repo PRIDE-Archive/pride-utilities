@@ -353,6 +353,9 @@ public enum CvTermReference{
     MS_DATASET_LINK_HTTP("MS", "MS:1001930", "PRIDE project URI", ""),
 
 
+    // New PSI Terms
+    MS_DELTA_MASS("MS", "MS:1001975", "delta m/z", "MS:1001405"),
+
     // PIA Terms
     MS_PIA_PSM_LEVEL_QVALUE("MS", "MS:1002354","PSM-level q-value", "MS:1001143"),
     MS_PIA_PSM_LEVEL_FDRSCORE("MS", "MS:1002355", "PSM-level FDRScore", "MS:1001143"),
