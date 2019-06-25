@@ -362,8 +362,12 @@ public enum CvTermReference{
     MS_PIA_PROTEIN_SCORE("MS", "MS:1002394", "PIA:protein score", "MS:1002363"),
     MS_PIA_PROTEIN_GROUP_QVALUE("MS","MS:1002373", "protein group-level q-value", "MS:1002348"),
     MS_PIA_PEPTIDE_QVALUE("MS", "MS:1001868", "distinct peptide-level q-value", "MS:1002484"),
-    MS_PIA_PEPTIDE_FDR("MS", "MS:1002360", "distinct peptide-level FDRScore", "MS:1002484");
+    MS_PIA_PEPTIDE_FDR("MS", "MS:1002360", "distinct peptide-level FDRScore", "MS:1002484"),
 
+
+    // Validation Method
+    MS_DECOY_VALIDATION_METHOD("MS", "MS:1001194", "quality estimation with decoy database", "MS:1001060"),
+    MS_MANUAL_VALIDATION_METHOD("MS", "MS:1001058","quality estimation by manual validation","MS:1001060");
 
 
     /** End EFO Terms **/
