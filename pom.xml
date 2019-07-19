@@ -108,12 +108,6 @@
             <version>3.5.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>uk.ac.ebi.pride.utilities</groupId>
-            <artifactId>pride-jdbc</artifactId>
-            <version>1.0</version>
-        </dependency>
-
     </dependencies>
 
     <build>
