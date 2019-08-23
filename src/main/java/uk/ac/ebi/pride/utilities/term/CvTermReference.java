@@ -93,6 +93,8 @@ public enum CvTermReference{
     CONTACT_NAME("MS", "MS:1000586", "contact name", "MS:1000585"),
     CONTACT_ORG("MS", "MS:1000590", "contact organization", "MS:1000585"),
     CONTACT_EMAIL("MS", "MS:1000589", "contact email", "MS:1000585"),
+    CONTACT_ROLE_LAB_HEAD("MS", "MS:1002332", "lab head", "MS:1000585"),
+    CONTACT_ROLE_SUBMITTER("MS", "MS:1002037", "dataset submitter", "MS:1000585"),
     MS_PROTEIN_DESCRIPTION("MS","MS:1001088","protein description", "MS:1001116"),
     CONVERSION_TO_MZML("MS", "MS:1000544", "Conversion to mzML", "MS:1000452"),
     INSTRUMENT_MODEL("MS", "MS:1000031", "instrument model", "MS:1000463"),
