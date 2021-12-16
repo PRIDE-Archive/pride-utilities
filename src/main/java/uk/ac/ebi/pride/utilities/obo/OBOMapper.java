@@ -1,13 +1,21 @@
 package uk.ac.ebi.pride.utilities.obo;
 
-import org.apache.log4j.Logger;
 import org.obolibrary.oboformat.model.Frame;
 import org.obolibrary.oboformat.model.OBODoc;
 import org.obolibrary.oboformat.parser.OBOFormatParser;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URISyntaxException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -19,7 +27,7 @@ import java.util.*;
 public class OBOMapper {
 
     /** the logger for this class */
-    private static final Logger LOGGER = Logger.getLogger(OBOMapper.class);
+    private static final Logger LOGGER = Logger.getLogger(OBOMapper.class.getName());
     private OBODoc oboDoc = null;
 
     InputStream source;
@@ -34,7 +42,7 @@ public class OBOMapper {
             oboDoc.getInstanceFrames();
             initMapper();
         } catch (IOException e) {
-            LOGGER.error("The File can't be open --" + source.getAbsolutePath() + e.getMessage());
+            LOGGER.log(Level.SEVERE,"The File can't be open --" + source.getAbsolutePath() + e.getMessage());
         }
     }
 
@@ -47,7 +55,7 @@ public class OBOMapper {
             oboDoc.getInstanceFrames();
             initMapper();
         } catch (IOException e) {
-            LOGGER.error("The File can't be open --" + source.toString() + e.getMessage());
+            LOGGER.log(Level.SEVERE,"The File can't be open --" + source.toString() + e.getMessage());
         }
     }
 
