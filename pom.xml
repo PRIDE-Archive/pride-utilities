@@ -61,7 +61,7 @@
         <uk.ac.ebi.pride.architectural.pride-tdd.version>1.0.4-SNAPSHOT</uk.ac.ebi.pride.architectural.pride-tdd.version>
         <assembly.dir>${name}-${version}</assembly.dir>
         <math3.version>3.0</math3.version>
-        <log4j.version>2.16.0</log4j.version>
+        <log4j.version>2.17.0</log4j.version>
     </properties>
 
     <dependencies>
