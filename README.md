@@ -1,7 +1,7 @@
 pride-utilities
 ===============
 
-[![Build Status](https://travis-ci.org/PRIDE-Utilities/pride-utilities.svg?branch=master)](https://travis-ci.org/PRIDE-Utilities/pride-utilities)
+[![Java CI with Maven](https://github.com/PRIDE-Utilities/pride-utilities/actions/workflows/maven.yml/badge.svg)](https://github.com/PRIDE-Utilities/pride-utilities/actions/workflows/maven.yml)
 
 # About PRIDE Utilities
 
