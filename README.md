@@ -1,8 +1,7 @@
 pride-utilities
 ===============
 
-[![Java CI with Maven](https://github.com/PRIDE-Utilities/pride-utilities/actions/workflows/maven.yml/badge.svg)](https://github.com/PRIDE-Utilities/pride-utilities/actions/workflows/maven.yml)
-
+[![Java CI with Maven](https://github.com/PRIDE-Utilities/pride-utilities/actions/workflows/maven.yml/badge.svg?branch=dev)](https://github.com/PRIDE-Utilities/pride-utilities/actions/workflows/maven.yml)
 # About PRIDE Utilities
 
 The primary purpose of PRIDE Utilities library is to provide commonly used classes shared by all the PRIDE Tool Suite. You may also find it useful for your own computational proteomics projects.
