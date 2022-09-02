@@ -1,9 +1,6 @@
 package uk.ac.ebi.pride.utilities.mol;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 /**
  * Peptide represents a list of <cod> AminoAcid </code>
@@ -185,7 +182,7 @@ public class AminoAcidSequence implements Mass {
 
         AminoAcidSequence aminoAcidSequence = (AminoAcidSequence) o;
 
-        return !(aminoAcids != null ? !aminoAcids.equals(aminoAcidSequence.aminoAcids) : aminoAcidSequence.aminoAcids != null);
+        return Objects.equals(aminoAcids, aminoAcidSequence.aminoAcids);
 
     }
 

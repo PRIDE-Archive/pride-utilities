@@ -5,6 +5,7 @@ import uk.ac.ebi.pride.utilities.exception.ContaminantFileException;
 
 import java.io.*;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +14,7 @@ import org.apache.commons.io.FileUtils;
 public class MatchContaminant {
 
     private static MatchContaminant instance;
-    private String contaminantSequence;
+    private final String contaminantSequence;
 
     /**
      * Private Constructor
@@ -35,7 +36,7 @@ public class MatchContaminant {
             }
             contaminantSequence = FastaReaderContaminantHelper.getInstance(contaminatsFile).allSequences().toUpperCase();
         } catch (Exception e) {
-            throw new ContaminantFileException("The Contaminant File cannot been found: \n" + e.toString());
+            throw new ContaminantFileException("The Contaminant File cannot been found: \n" + e);
         }
     }
 
@@ -79,7 +80,7 @@ public class MatchContaminant {
             if (!fastaFile.exists()) {
                 throw new IllegalArgumentException("Fasta file does not exist: " + fastaFile.getPath());
             }
-            return getInstance(new FileInputStream(fastaFile));
+            return getInstance(Files.newInputStream(fastaFile.toPath()));
         }
 
         /**
@@ -137,7 +138,7 @@ public class MatchContaminant {
             }
             Set<String> headers = new HashSet<>(); // todo unused currently
             StringBuilder sequence = new StringBuilder();
-            line = line.substring(1, line.length());	// strip off the leading ">" on the header line
+            line = line.substring(1);	// strip off the leading ">" on the header line
             /* In FASTA files, multiple headers can be associated with the same sequence, and will
              * be present on the same line.  The separate headers are separated by the CONTROL-A
              * character, so we split on that here, and save each to the headers Set */

@@ -2,6 +2,7 @@ package uk.ac.ebi.pride.utilities.util.file;
 
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.Enumeration;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.ZipEntry;
@@ -15,7 +16,7 @@ import java.util.zip.ZipFile;
  */
 public final class FileUtil {
 
-    static public String DOT = ".";
+    static public final String DOT = ".";
     private FileUtil() {
     }
     /**
@@ -33,7 +34,7 @@ public final class FileUtil {
         int mid = fileName.lastIndexOf(DOT);
         String fileNameExt = null;
         if (mid > 0) {
-            fileNameExt = fileName.substring(mid + 1, fileName.length()).toLowerCase();
+            fileNameExt = fileName.substring(mid + 1).toLowerCase();
         }
 
         return fileNameExt;
@@ -47,7 +48,7 @@ public final class FileUtil {
      * @throws java.io.IOException exception while reading the given file
      */
     public static boolean isBinaryFile(File file) throws IOException {
-        try (InputStream in = new FileInputStream(file)) {
+        try (InputStream in = Files.newInputStream(file.toPath())) {
             int size = file.length() > 500 ? 500 : new Long(file.length()).intValue();
             byte[] bytes = new byte[size];
 
@@ -128,7 +129,7 @@ public final class FileUtil {
         InputStream fileInputStream = null;
 
         if (isGzipped(file)) {
-            fileInputStream = new GZIPInputStream(new FileInputStream(file));
+            fileInputStream = new GZIPInputStream(Files.newInputStream(file.toPath()));
         } else if (isZipped(file)) {
             ZipFile zipFile = new ZipFile(file);
             Enumeration<? extends ZipEntry> entries = zipFile.entries();
@@ -138,7 +139,7 @@ public final class FileUtil {
                 fileInputStream = zipFile.getInputStream(entry);
             }
         } else {
-            fileInputStream = new FileInputStream(file);
+            fileInputStream = Files.newInputStream(file.toPath());
         }
 
         return fileInputStream;

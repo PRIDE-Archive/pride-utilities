@@ -2,6 +2,7 @@ package uk.ac.ebi.pride.utilities.mol;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Chemical Group, which including at least one Element. User can get mass value of chemical group.
@@ -14,37 +15,35 @@ import java.util.List;
  */
 public class Group {
     private double mass = 0;
-    private List<Element> elements;
+    private final List<Element> elements;
 
     /**
-     *  @see Peptide#n_terminal
      */
-    public static Group H = new Group(Element.H);
+    public static final Group H = new Group(Element.H);
 
     /**
-     * @see Peptide#c_terminal
      */
-    public static Group OH = new Group(Element.O, Element.H);
+    public static final Group OH = new Group(Element.O, Element.H);
 
     /**
      *  CO group used in calcute the mass of a and x ion.
      */
-    public static Group CO = new Group(Element.C, Element.O);
+    public static final Group CO = new Group(Element.C, Element.O);
 
     /**
      *  NH group used in calcute the mass of z ion.
      */
-    public static Group NH = new Group(Element.N, Element.H);
+    public static final Group NH = new Group(Element.N, Element.H);
 
     /**
      * Water group.
      */
-    public static Group H2O = new Group(Element.H, Element.H, Element.O);
+    public static final Group H2O = new Group(Element.H, Element.H, Element.O);
 
     /**
      *  Ammonia group
      */
-    public static Group NH3 = new Group(Element.N, Element.H, Element.H, Element.H);
+    public static final Group NH3 = new Group(Element.N, Element.H, Element.H, Element.H);
 
     /**
      * A chemical group maybe include more than one chemical elements. We overwrite
@@ -57,7 +56,6 @@ public class Group {
      * </P>
      *
      * @param elementList a var-arg @see uk.ac.ebi.pride.iongen.model.Element
-     * @exception NullPointerException
      */
     public Group(Element... elementList) {
         if (elementList == null) {
@@ -108,7 +106,7 @@ public class Group {
 
         Group group = (Group) o;
 
-        return Double.compare(group.mass, mass) == 0 && !(elements != null ? !elements.equals(group.elements) : group.elements != null);
+        return Double.compare(group.mass, mass) == 0 && Objects.equals(elements, group.elements);
 
     }
 
@@ -116,7 +114,7 @@ public class Group {
     public int hashCode() {
         int result;
         long temp;
-        temp = mass != +0.0d ? Double.doubleToLongBits(mass) : 0L;
+        temp = mass != 0.0d ? Double.doubleToLongBits(mass) : 0L;
         result = (int) (temp ^ (temp >>> 32));
         result = 31 * result + (elements != null ? elements.hashCode() : 0);
         return result;

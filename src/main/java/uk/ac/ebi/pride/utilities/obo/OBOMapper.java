@@ -6,11 +6,10 @@ import org.obolibrary.oboformat.parser.OBOFormatParser;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URISyntaxException;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -36,7 +35,7 @@ public class OBOMapper {
     public OBOMapper(File source) {
         OBOFormatParser oboReader = new OBOFormatParser();
         try{
-            this.source = new FileInputStream(source);
+            this.source = Files.newInputStream(source.toPath());
             BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(this.source));
             oboDoc = oboReader.parse(bufferedReader);
             oboDoc.getInstanceFrames();
@@ -55,7 +54,7 @@ public class OBOMapper {
             oboDoc.getInstanceFrames();
             initMapper();
         } catch (IOException e) {
-            LOGGER.log(Level.SEVERE,"The File can't be open --" + source.toString() + e.getMessage());
+            LOGGER.log(Level.SEVERE,"The File can't be open --" + source + e.getMessage());
         }
     }
 
@@ -75,7 +74,7 @@ public class OBOMapper {
         }
     }
 
-    public static OBOMapper getPSIMSInstance() throws URISyntaxException {
+    public static OBOMapper getPSIMSInstance() {
         OBOMapper mapper = new OBOMapper(OBOMapper.class.getClassLoader().getResourceAsStream("obo/psi-ms.obo"));
         return mapper;
     }
@@ -87,7 +86,6 @@ public class OBOMapper {
     /**
      * Gets the entry in the OBO with the given name. If none is found, returns
      * null.
-     * @return
      */
     public OboCvTerm getTermByAccession(String accession) {
         if(termMap.containsKey(accession))

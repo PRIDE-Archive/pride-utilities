@@ -111,8 +111,6 @@ public class FragmentIonUtilities {
      * String contains h2o will return WATER_LOSS.
      * String contains nh3 will return AMMONIA_LOSS.
      *
-     * @param ionTypeStr
-     * @return
      */
     public static NeutralLoss getFragmentIonNeutralLoss(String ionTypeStr) {
         NeutralLoss frag = null;

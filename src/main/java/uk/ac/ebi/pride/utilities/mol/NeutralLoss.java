@@ -1,5 +1,7 @@
 package uk.ac.ebi.pride.utilities.mol;
 
+import java.util.Objects;
+
 /**
  * neutral losses
  *
@@ -48,7 +50,7 @@ public class NeutralLoss implements Mass, Cloneable {
 
         NeutralLoss that = (NeutralLoss) o;
 
-        return Double.compare(that.avgMass, avgMass) == 0 && Double.compare(that.monoMass, monoMass) == 0 && !(name != null ? !name.equals(that.name) : that.name != null) && !(sign != null ? !sign.equals(that.sign) : that.sign != null);
+        return Double.compare(that.avgMass, avgMass) == 0 && Double.compare(that.monoMass, monoMass) == 0 && Objects.equals(name, that.name) && Objects.equals(sign, that.sign);
 
     }
 
@@ -58,9 +60,9 @@ public class NeutralLoss implements Mass, Cloneable {
         long temp;
         result = name != null ? name.hashCode() : 0;
         result = 31 * result + (sign != null ? sign.hashCode() : 0);
-        temp = avgMass != +0.0d ? Double.doubleToLongBits(avgMass) : 0L;
+        temp = avgMass != 0.0d ? Double.doubleToLongBits(avgMass) : 0L;
         result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = monoMass != +0.0d ? Double.doubleToLongBits(monoMass) : 0L;
+        temp = monoMass != 0.0d ? Double.doubleToLongBits(monoMass) : 0L;
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }

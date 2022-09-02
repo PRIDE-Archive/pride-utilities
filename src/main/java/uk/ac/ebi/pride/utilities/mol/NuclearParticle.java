@@ -16,7 +16,7 @@ public enum NuclearParticle implements Mass {
 //    m(e-)         = 0.00054857990924 u = new determination of electrons mass
 
     //todo: check the monomass and avgmass values.
-    PROTON ("proton", "H", 1, 1.007276470, 1.007276470);
+    PROTON ();
 
     private final String name;
     private final String formula;
@@ -24,13 +24,12 @@ public enum NuclearParticle implements Mass {
     private final double monoMass;
     private final double avgMass;
 
-    NuclearParticle(String name, String formula, double charge,
-                    double monoMass, double avgMass) {
-        this.name = name;
-        this.formula = formula;
-        this.charge = charge;
-        this.monoMass = monoMass;
-        this.avgMass = avgMass;
+    NuclearParticle() {
+        this.name = "proton";
+        this.formula = "H";
+        this.charge = 1;
+        this.monoMass = 1.00727647;
+        this.avgMass = 1.00727647;
     }
 
     public String getName() {

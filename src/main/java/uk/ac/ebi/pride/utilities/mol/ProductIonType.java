@@ -27,10 +27,10 @@ public enum ProductIonType {
     Z_NH3("z*", FragmentIonType.Z_ION, NeutralLoss.AMMONIA_LOSS, ProductIonPair.C_Z),
     Z_H2O("z°", FragmentIonType.Z_ION, NeutralLoss.WATER_LOSS, ProductIonPair.C_Z);
 
-    private String name;
-    private FragmentIonType group;
-    private NeutralLoss loss;
-    private ProductIonPair pair;
+    private final String name;
+    private final FragmentIonType group;
+    private final NeutralLoss loss;
+    private final ProductIonPair pair;
 
     ProductIonType(String name, FragmentIonType group, NeutralLoss loss, ProductIonPair pair) {
         this.name = name;

@@ -12,7 +12,7 @@ import java.math.MathContext;
  */
 public class ApproximateComparator {
 
-    private MathContext context;
+    private final MathContext context;
 
     public ApproximateComparator() {
         this(5);

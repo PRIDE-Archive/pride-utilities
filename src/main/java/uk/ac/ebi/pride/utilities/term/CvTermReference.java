@@ -449,6 +449,7 @@ public enum CvTermReference{
         for (CvTermReference cv : cvTerms) {
             if (cv.getAccession().equals(accession)) {
                 result = true;
+                break;
             }
         }
 

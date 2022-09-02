@@ -15,9 +15,9 @@ import java.util.List;
  * Date: 10/12/12
  */
 public class PeptideScore {
-    private PeakSet peakSet;
+    private final PeakSet peakSet;
 
-    private PrecursorIon precursorIon;
+    private final PrecursorIon precursorIon;
 
     private ProductIonPair ionPair = ProductIonPair.B_Y;
 
@@ -152,7 +152,7 @@ public class PeptideScore {
 
         List<ProductIon> ionList;
         int charge = precursorIon.getCharge();
-        charge = charge > 3 ? 3 : charge;
+        charge = Math.min(charge, 3);
         for (int i = 1; i <= charge; i++) {
             ionList = addProductIonListByCharge(precursorIon, i);
             productIonSet.addAll(ionList);

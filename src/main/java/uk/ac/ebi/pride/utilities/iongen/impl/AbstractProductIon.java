@@ -17,12 +17,12 @@ import uk.ac.ebi.pride.utilities.mol.ProductIonType;
  * @version 0.1-SNAPSHOT
  */
 public abstract class AbstractProductIon extends DefaultPeptideIon implements ProductIon, Comparable<ProductIon> {
-    private PrecursorIon precursorIon;
-    private ProductIonType type;
+    private final PrecursorIon precursorIon;
+    private final ProductIonType type;
     /**
      * the position from [1..precursor.peptide.length-1]
      */
-    private int position;
+    private final int position;
 
     /**
      * Create product ion instance. There are some constraints among the {@link PrecursorIon},

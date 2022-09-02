@@ -25,8 +25,8 @@ public enum Element {
     I( "I",  126.904473),
     Cs("Cs", 132.905429);
 
-    private String name;
-    private double mass;
+    private final String name;
+    private final double mass;
 
     Element(String name, double mass) {
         this.name = name;

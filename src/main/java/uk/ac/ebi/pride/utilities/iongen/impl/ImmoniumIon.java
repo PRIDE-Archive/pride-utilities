@@ -14,11 +14,11 @@ import uk.ac.ebi.pride.utilities.mol.PTModification;
  * Version: 0.1-SNAPSHOT
  */
 public class ImmoniumIon implements Comparable<ImmoniumIon> {
-    private String typeName = "Immonium";
-    private AminoAcid acid;
-    private int charge;
-    private int position;
-    private PTModification modification;
+    private final String typeName = "Immonium";
+    private final AminoAcid acid;
+    private final int charge;
+    private final int position;
+    private final PTModification modification;
 
     /**
      * the position from [0..length-1]
