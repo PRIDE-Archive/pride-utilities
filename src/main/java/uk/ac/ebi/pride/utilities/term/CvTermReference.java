@@ -257,6 +257,9 @@ public enum CvTermReference{
     MS_PROLUCID_XSCORE("MS", "MS:1002534", "The ProLuCID result 'XCorr'", "MS:1001143"),
     MS_PROLUCID_DELTA("MS", "MS:1002535", "The ProLuCID result 'DeltaCn'", "MS:1001143"),
 
+    MS_COMET_EXPECTATION_VALUE("MS", "MS:1002257", "Comet:expectation value", "MS:1001153"),
+    MS_PSM_LEVEL_PROBABILITY("MS", "MS:1002357", "PSM-level probability", "MS:1001153"),
+
     // ProteoGrouper
     MS_PROTEOGROUPER_PDHSCORE("MS", "MS:1002235", "ProteoGrouper:PDH score", "MS:1001116"),
 
@@ -346,8 +349,6 @@ public enum CvTermReference{
     UNIMOD_ROOT_NODE("UNIMOD", "UNIMOD:0", "unimod root node", ""),
 
     /** PRIDE CURRENT Terms **/
-
-
     MS_PUBLICATION_PUBMED_IDENTIFIER("MS", "MS:1000879", "PubMed identifier", null),
     MS_PUBLICATION_REFERENCE("MS", "MS:1002866", "Reference", null),
     MS_KEYWORD_SUBMITTER("MS", "MS:1001925", "submitter keyword", ""),
@@ -369,7 +370,10 @@ public enum CvTermReference{
 
     // Validation Method
     MS_DECOY_VALIDATION_METHOD("MS", "MS:1001194", "quality estimation with decoy database", "MS:1001060"),
-    MS_MANUAL_VALIDATION_METHOD("MS", "MS:1001058","quality estimation by manual validation","MS:1001060");
+    MS_MANUAL_VALIDATION_METHOD("MS", "MS:1001058","quality estimation by manual validation","MS:1001060"),
+
+
+    ;
 
 
     /** End EFO Terms **/
