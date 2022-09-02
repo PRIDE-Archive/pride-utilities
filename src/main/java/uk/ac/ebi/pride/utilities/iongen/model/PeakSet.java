@@ -9,7 +9,7 @@ import java.util.*;
  * Date: 02/11/12
  */
 public class PeakSet extends TreeSet<Peak> {
-    private ApproximateComparator comparator = new ApproximateComparator();
+    private final ApproximateComparator comparator = new ApproximateComparator();
 
     public PeakSet() {
     }
@@ -132,6 +132,7 @@ public class PeakSet extends TreeSet<Peak> {
             result.remove(startPeak);
         }
 
+        assert endPeak != null;
         if (comparator.compare(endPeak.getMz() - mz, interval) > 0) {
             result.remove(endPeak);
         }
@@ -180,7 +181,7 @@ public class PeakSet extends TreeSet<Peak> {
     /**
      * based on intensity descent order, and m/z ascent order.
      */
-    private class IntensityComparator implements Comparator<Peak> {
+    private static class IntensityComparator implements Comparator<Peak> {
         @Override
         public int compare(Peak o1, Peak o2) {
             int result = Double.compare(o2.getIntensity(), o1.getIntensity());

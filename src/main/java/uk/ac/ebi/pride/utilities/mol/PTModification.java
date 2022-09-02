@@ -2,6 +2,7 @@ package uk.ac.ebi.pride.utilities.mol;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * PTModification stores modification details, this class is not enum because
@@ -55,7 +56,7 @@ public class PTModification {
 
         PTModification that = (PTModification) o;
 
-        return (avgMassDeltas != null ? avgMassDeltas.equals(that.avgMassDeltas) : that.avgMassDeltas == null) && (label != null ? label.equals(that.label) : that.label == null) && (monoMassDeltas != null ? monoMassDeltas.equals(that.monoMassDeltas) : that.monoMassDeltas == null) && !(name != null ? !name.equals(that.name) : that.name != null) && !(type != null ? !type.equals(that.type) : that.type != null);
+        return (Objects.equals(avgMassDeltas, that.avgMassDeltas)) && (Objects.equals(label, that.label)) && (Objects.equals(monoMassDeltas, that.monoMassDeltas)) && Objects.equals(name, that.name) && Objects.equals(type, that.type);
 
     }
 

@@ -60,8 +60,8 @@ public enum MassSpecFileFormat {
     JPG("jpg", true);
 
 
-    private String fileExtension;
-    private boolean fileFormat;
+    private final String fileExtension;
+    private final boolean fileFormat;
 
 
     MassSpecFileFormat(String fileExtension, boolean fileFormat) {
@@ -112,25 +112,29 @@ public enum MassSpecFileFormat {
         boolean emptyFile = !FileUtil.isFileEmpty(file);
 
         if (ext != null && emptyFile) {
-            if ("xml".equals(ext.toLowerCase())) {
-                // read file content to detect the type
-                format = checkXmlFormat(file);
-            } else if ("zip".equals(ext.toLowerCase())) {
-                format = checkZippedFileExtension(file);
-                if (format == null) {
-                    format = checkZippedFileContent(file);
-                }
-            } else if ("gz".equals(ext.toLowerCase())) {
-                format = checkGzippedFileExtension(file);
-                if (format == null) {
-                    format = checkGzippedFileContent(file);
-                }
-            } else if ("txt".equals(ext.toLowerCase())) {
-                format = null;
-            } else if ("xls".equals(ext.toLowerCase())) {
-                format = null;
-            } else {
-                format = checkFormat(ext, isFile);
+            switch (ext.toLowerCase()) {
+                case "xml":
+                    // read file content to detect the type
+                    format = checkXmlFormat(file);
+                    break;
+                case "zip":
+                    format = checkZippedFileExtension(file);
+                    if (format == null) {
+                        format = checkZippedFileContent(file);
+                    }
+                    break;
+                case "gz":
+                    format = checkGzippedFileExtension(file);
+                    if (format == null) {
+                        format = checkGzippedFileContent(file);
+                    }
+                    break;
+                case "txt":
+                case "xls":
+                    break;
+                default:
+                    format = checkFormat(ext, isFile);
+                    break;
             }
         }
 
@@ -164,9 +168,7 @@ public enum MassSpecFileFormat {
             } else if ("gz".equalsIgnoreCase(ext)) {
                 format = checkCompressedFormat(urlPath, "gz");
             } else if ("txt".equalsIgnoreCase(ext)) {
-                format = null;
             } else if ("xls".equalsIgnoreCase(ext)) {
-                format = null;
             } else {
                 format = checkFormat(ext, true);
             }
@@ -283,7 +285,7 @@ public enum MassSpecFileFormat {
                 ZipEntry entry = entries.nextElement();
                 // reading buffer size
                 int BUFFER = 1048;
-                byte data[] = new byte[BUFFER];
+                byte[] data = new byte[BUFFER];
 
                 InputStream inputStream = zipFile.getInputStream(entry);
                 inputStream.read(data, 0, BUFFER);
@@ -322,7 +324,7 @@ public enum MassSpecFileFormat {
 
             // reading buffer size
             int BUFFER = 1048;
-            byte data[] = new byte[BUFFER];
+            byte[] data = new byte[BUFFER];
 
             gzipInputStream.read(data, 0, BUFFER);
 

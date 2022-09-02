@@ -10,9 +10,9 @@ import java.util.*;
  */
 public class Peptide {
 
-    private List<AminoAcid> acidList;
-    private Group n_terminal;
-    private Group c_terminal;
+    private final List<AminoAcid> acidList;
+    private final Group n_terminal;
+    private final Group c_terminal;
 
     // the ptm position from [0, sequence.length-1]
     private Map<Integer, PTModification> ptm = new HashMap<>();
@@ -263,10 +263,10 @@ public class Peptide {
 
         Peptide peptide = (Peptide) o;
 
-        if (acidList != null ? !acidList.equals(peptide.acidList) : peptide.acidList != null) return false;
-        if (c_terminal != null ? !c_terminal.equals(peptide.c_terminal) : peptide.c_terminal != null) return false;
-        if (n_terminal != null ? !n_terminal.equals(peptide.n_terminal) : peptide.n_terminal != null) return false;
-        return ptm != null ? ptm.equals(peptide.ptm) : peptide.ptm == null;
+        if (!Objects.equals(acidList, peptide.acidList)) return false;
+        if (!Objects.equals(c_terminal, peptide.c_terminal)) return false;
+        if (!Objects.equals(n_terminal, peptide.n_terminal)) return false;
+        return Objects.equals(ptm, peptide.ptm);
     }
 
     @Override

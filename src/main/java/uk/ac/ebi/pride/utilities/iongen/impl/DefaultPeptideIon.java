@@ -6,6 +6,7 @@ import uk.ac.ebi.pride.utilities.mol.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  *
@@ -14,9 +15,9 @@ import java.util.Map;
  */
 public class DefaultPeptideIon implements PeptideIon {
 
-    private Peptide peptide;
-    private int charge;
-    private double mass;
+    private final Peptide peptide;
+    private final int charge;
+    private final double mass;
 
     private double calculateMass() {
         double mass = 0;
@@ -98,7 +99,7 @@ public class DefaultPeptideIon implements PeptideIon {
 
         DefaultPeptideIon that = (DefaultPeptideIon) o;
 
-        return charge == that.charge && Double.compare(that.mass, mass) == 0 && !(peptide != null ? !peptide.equals(that.peptide) : that.peptide != null);
+        return charge == that.charge && Double.compare(that.mass, mass) == 0 && Objects.equals(peptide, that.peptide);
 
     }
 
@@ -108,7 +109,7 @@ public class DefaultPeptideIon implements PeptideIon {
         long temp;
         result = peptide != null ? peptide.hashCode() : 0;
         result = 31 * result + charge;
-        temp = mass != +0.0d ? Double.doubleToLongBits(mass) : 0L;
+        temp = mass != 0.0d ? Double.doubleToLongBits(mass) : 0L;
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }

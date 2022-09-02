@@ -37,10 +37,10 @@ public class IsoelectricPointUtils {
     }
 
     public static class BjellpI {
-        private Map<String,Double> Cterm_pI_expasy = new HashMap<>();
-        private Map<String,Double> Nterm_pI_expasy = new HashMap<>();
-        private Map<String, Double> sideGroup_pI_expasy = new HashMap<>();
-        private double FoRmU = 0.0D;
+        private final Map<String,Double> Cterm_pI_expasy = new HashMap<>();
+        private final Map<String,Double> Nterm_pI_expasy = new HashMap<>();
+        private final Map<String, Double> sideGroup_pI_expasy = new HashMap<>();
+        private final double FoRmU = 0.0D;
         private String seq = null; // sequenceAA
 
         public BjellpI(){
@@ -64,7 +64,7 @@ public class IsoelectricPointUtils {
                 if (pcs < 0) {
                     return pHs;
                 }
-                if (((pcs < 0) && (pcm > 0)) || ((pcs > 0) && (pcm < 0))) {
+                if (pcs > 0 && pcm < 0) {
                     pHe = pHm;
                 } else {
                     pHs = pHm;
@@ -82,16 +82,16 @@ public class IsoelectricPointUtils {
             double FoRmU = 0.0D;
 
             String ntermAA = String.valueOf(this.seq.charAt(0));
-            pHpK = PH - Double.valueOf(AApI_n.get(ntermAA).toString());
+            pHpK = PH - Double.parseDouble(AApI_n.get(ntermAA).toString());
             FoRmU += 1.0D / (1.0D + Math.pow(10.0D, pHpK));
             String cterm = String.valueOf(this.seq.charAt(this.seq.length() - 1));
-            pHpK = Double.valueOf(AApI_c.get(cterm).toString()) - PH;
+            pHpK = Double.parseDouble(AApI_c.get(cterm).toString()) - PH;
             FoRmU += -1.0D / (1.0D + Math.pow(10.0D, pHpK));
 
             for (int t = 0; t < this.seq.length(); ++t) {
                 sideAA = String.valueOf(this.seq.charAt(t));
                 if (AApI_side.containsKey(sideAA)) {
-                    double value = Double.valueOf(AApI_side.get(sideAA).toString());
+                    double value = Double.parseDouble(AApI_side.get(sideAA).toString());
                     if (value < 0.0D) {
                         pHpK = PH + value;
                         FoRmU += 1.0D / (1.0D + Math.pow(10.0D, pHpK));

@@ -1,11 +1,13 @@
 package uk.ac.ebi.pride.utilities.iongen.ion;
 
+import java.util.Objects;
+
 /**
  * FragmentIonType defines different type of fragment ion annotations.
  * Refer to FragmentIonTypeColor for specific color.
  *
  * @author rwang
- * @author: ypriverol
+ * {@code @author:} ypriverol
  */
 public class FragmentIonType implements Cloneable {
     public static final FragmentIonType A_ION = new FragmentIonType("a ion", "a");
@@ -50,7 +52,7 @@ public class FragmentIonType implements Cloneable {
 
         FragmentIonType that = (FragmentIonType) o;
 
-        return !(label != null ? !label.equals(that.label) : that.label != null) && !(name != null ? !name.equals(that.name) : that.name != null);
+        return Objects.equals(label, that.label) && Objects.equals(name, that.name);
 
     }
 

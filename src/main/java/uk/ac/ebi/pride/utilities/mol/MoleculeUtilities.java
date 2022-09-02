@@ -130,6 +130,7 @@ public class MoleculeUtilities {
         for (int i = 0; i < seq.length(); i++) {
             char aa = seq.charAt(i);
             AminoAcid aminoAcid = getAminoacid(aa);
+            assert aminoAcid != null;
             theoreticalMass += aminoAcid.getMonoMass();
         }
 

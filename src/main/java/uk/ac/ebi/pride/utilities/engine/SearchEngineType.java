@@ -60,7 +60,7 @@ public enum SearchEngineType {
     GENERIC_SEARCH_ENGINE(Collections.singletonList(CvTermReference.MS_SEARCH_ENGINE_SPECIFIC_SCORE));
 
 
-    private List<CvTermReference> searchEngineScores;
+    private final List<CvTermReference> searchEngineScores;
 
     SearchEngineType(List<CvTermReference> searchEngineScores) {
         this.searchEngineScores = searchEngineScores;

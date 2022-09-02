@@ -1,6 +1,7 @@
 package uk.ac.ebi.pride.utilities.util;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * <code> NumberUtilities </code> provides methods for number handling.
@@ -136,7 +137,7 @@ public class NumberUtilities {
      */
     public static double scaleDouble(double value, int decimalPlaces) {
         BigDecimal bd = new BigDecimal(Double.toString(value));
-        bd = bd.setScale(decimalPlaces, BigDecimal.ROUND_HALF_UP);
+        bd = bd.setScale(decimalPlaces, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
 }

@@ -4,7 +4,7 @@ import java.awt.*;
 
 /**
  * FragmentIonTypeColor stores all the color for each FragmentIonType.
- *
+ * <p>
  * This class is decoupled from FragmentIonType.
  *
  * @author rwang
